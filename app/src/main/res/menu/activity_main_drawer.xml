@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/recordBookNav"
+            android:icon="@drawable/ic_menu_record_book_24"
+            android:title="@string/menu_record_book" />
+        <item
+            android:id="@+id/taskGalleryNav"
+            android:icon="@drawable/ic_menu_task_gallery_24"
+            android:title="@string/menu_task_gallery" />
+        <item
+            android:id="@+id/monkeyHouseNav"
+            android:icon="@drawable/ic_menu_monkey_house_24"
+            android:title="@string/menu_monkey_house" />
+    </group>
+</menu>

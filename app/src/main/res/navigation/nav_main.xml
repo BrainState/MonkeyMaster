@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@+id/recordBookNav">
+
+    <fragment
+        android:id="@+id/recordBookNav"
+        android:name="com.cebsit.monkeymaster.ui.recordbook.RecordBookFrag"
+        android:label="@string/menu_record_book"
+        tools:layout="@layout/frag_record_book" />
+
+    <fragment
+        android:id="@+id/taskGalleryNav"
+        android:name="com.cebsit.monkeymaster.ui.taskgallery.TaskGalleryFrag"
+        android:label="@string/menu_task_gallery"
+        tools:layout="@layout/frag_task_gallery" />
+
+    <fragment
+        android:id="@+id/monkeyHouseNav"
+        android:name="com.cebsit.monkeymaster.ui.monkeyhouse.MonkeyHouseFrag"
+        android:label="@string/menu_monkey_house"
+        tools:layout="@layout/frag_monkey_house" >
+    </fragment>
+</navigation>

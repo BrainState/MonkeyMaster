@@ -1,0 +1,12 @@
+[
+  {
+    "taskId":"t001",
+    "taskName": "Pad Adjustment",
+    "intro": "Pressing a easy cue on screen will trigger device and receive reward for adjust tap the pad. "
+  },
+  {
+    "taskId":"t002",
+    "taskName": "Object Discrimination",
+    "intro": "Subjects shown a stimuli, and then must choose them from up to 3 distractors. "
+  }
+]
