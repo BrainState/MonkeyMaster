@@ -13,6 +13,10 @@ public class Task implements Serializable {
         this.intro = intro;
     }
 
+    public Task() {
+
+    }
+
     public String getTaskId() {
         return taskId;
     }

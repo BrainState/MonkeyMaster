@@ -77,11 +77,11 @@ public class MonkeysRecyclerViewAdapter extends RecyclerView.Adapter<MonkeysRecy
         int month = monkey.getBirthmonth().getMonth();
 
         Date date = new Date();
-        int age = UtilsSystem.getYear(date) - year;
+        int age = UtilsSystem.timeIntConverter("yyyy") - year;
         String dateUnit = "-year-old";
 
         if (age == 0) {
-            age = UtilsSystem.getMonth(date) - month;
+            age = UtilsSystem.timeIntConverter("MM") - month;
             dateUnit = "-month-old";
         }
 

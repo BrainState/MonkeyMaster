@@ -5,15 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UtilsSystem {
-    public static int getYear(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
-        int year = Integer.parseInt(sdf.format(date));
-        return year;
-    }
-
-    public static int getMonth(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("MM");
-        int month = Integer.parseInt(sdf.format(date));
-        return month;
+    public static int timeIntConverter(String pattern){
+        Time time = new Time(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        return Integer.parseInt(sdf.format(time));
     }
 }

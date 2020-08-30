@@ -10,6 +10,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
 import com.cebsit.monkeymaster.R;
+import com.cebsit.monkeymaster.backend.TimeFormatConverter;
 import com.cebsit.monkeymaster.backend.UtilsSystem;
 import com.cebsit.monkeymaster.database.Monkey;
 import com.cebsit.monkeymaster.main.MainViewModel;
@@ -20,12 +21,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.monkeyNameMap;
+
 
 public class NewMonkeyFrag extends PreferenceFragmentCompat {
 
     private MainViewModel mainViewModel;
     private SharedPreferences sp;
-    private List<String> monkeyNameList;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -34,7 +36,6 @@ public class NewMonkeyFrag extends PreferenceFragmentCompat {
         sp = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        monkeyNameList = mainViewModel.getAllMonkeysNameLive().getValue() == null ? new ArrayList<String>() : mainViewModel.getAllMonkeysNameLive().getValue();
 
         //TODO 增加功能：根据传过来的值自动调整设置界面
 
@@ -52,10 +53,10 @@ public class NewMonkeyFrag extends PreferenceFragmentCompat {
                 birthmonth.setMonth(Integer.parseInt(sp.getString("new_monkey_birthmonth_month", "0")));
                 monkey.setBirthmonth(birthmonth);
 
-                int presentYear = UtilsSystem.getYear(new Date());
+                int presentYear = UtilsSystem.timeIntConverter("yyyy");
                 if (monkey.getMonkeyName().equals("")) {
                     Snackbar.make(view, getResources().getString(R.string.snackbar_msg_new_monkey_name_empty), Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                } else if (monkeyNameList.contains(monkey.getMonkeyName())) {
+                } else if (monkeyNameMap.keySet().contains(monkey.getMonkeyName())) {
                     Snackbar.make(view, getResources().getString(R.string.snackbar_msg_new_monkey_name_exist), Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 } else if (monkey.getWeight() <= 0) {
                     Snackbar.make(view, getResources().getString(R.string.snackbar_msg_new_monkey_weight), Snackbar.LENGTH_LONG).setAction("Action", null).show();

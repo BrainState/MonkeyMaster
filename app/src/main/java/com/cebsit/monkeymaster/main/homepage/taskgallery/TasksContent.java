@@ -1,5 +1,6 @@
 package com.cebsit.monkeymaster.main.homepage.taskgallery;
 
+import com.cebsit.monkeymaster.database.Monkey;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -13,6 +14,13 @@ public class TasksContent {
     public static List<Task> taskList;
     public static Map<String, Task> taskIdMap = new HashMap<>();
     public static Map<String, Task> taskNameMap = new HashMap<>();
+
+    public static Map<String, Monkey> monkeyNameMap = new HashMap<>();
+
+
+    public static int getTasksCount() {
+        return taskList.size();
+    }
 
     public static List<Task> getTasksFromJson (InputStream is) throws Exception {
         byte[] buffer = new byte[is.available()];

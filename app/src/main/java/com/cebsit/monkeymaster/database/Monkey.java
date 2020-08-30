@@ -1,5 +1,6 @@
 package com.cebsit.monkeymaster.database;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;

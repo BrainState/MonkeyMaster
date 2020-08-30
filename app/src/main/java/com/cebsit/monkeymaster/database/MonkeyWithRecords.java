@@ -12,8 +12,8 @@ public class MonkeyWithRecords {
     @Embedded
     public Monkey monkey;
     @Relation(
-            parentColumn = "monkey_id",
-            entityColumn = "monkey_id"
+            parentColumn = "monkey_name",
+            entityColumn = "monkey_name"
     )
     public List<Record> record_list;
 }

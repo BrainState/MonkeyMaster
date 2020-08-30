@@ -49,11 +49,11 @@ public interface MyDao {
     @Query("SELECT monkey_name FROM monkeys")
     LiveData<List<String>> getAllMonkeysNameLive();
 
-    @Query("SELECT monkey_id FROM monkeys WHERE monkey_name LIKE :selected_monkey_name")
-    LiveData<Integer> getMonkeyIdByName(String selected_monkey_name);
+    @Query("SELECT monkey_id FROM monkeys WHERE monkey_name LIKE :monkey_name")
+    LiveData<Integer> getMonkeyIdByNameLive(String monkey_name);
 
-    @Query("SELECT monkey_name FROM monkeys WHERE monkey_id LIKE :selected_monkey_id ")
-    LiveData<String> getMonkeyNameById(int selected_monkey_id);
+    @Query("SELECT monkey_name FROM monkeys WHERE monkey_id LIKE :monkey_id ")
+    LiveData<String> getMonkeyNameByIdLive(int monkey_id);
 
     @Transaction
     @Query("SELECT * FROM monkeys")

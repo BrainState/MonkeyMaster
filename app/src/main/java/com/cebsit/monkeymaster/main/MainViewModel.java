@@ -7,8 +7,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.cebsit.monkeymaster.database.Monkey;
-import com.cebsit.monkeymaster.database.room.MyRepository;
 import com.cebsit.monkeymaster.database.Record;
+import com.cebsit.monkeymaster.database.room.MyRepository;
 
 import java.util.List;
 
@@ -31,6 +31,24 @@ public class MainViewModel extends AndroidViewModel {
 
     public LiveData<List<String>> getAllMonkeysNameLive() {
         return myRepository.getAllMonkeysNameLive();
+    }
+
+//    public List<String> getAllMonkeysNameList() {
+//        LiveData<List<String>> allMonkeysNameLive = myRepository.getAllMonkeysNameLive();
+//        return allMonkeysNameLive.getValue();
+//    }
+//
+//    public String[] getAllMonkeysName() {
+//        List<String> monkeysNameList = getAllMonkeysNameList();
+//        return monkeysNameList.toArray(new String[monkeysNameList.size()]);
+//    }
+
+    public LiveData<String> getMonkeyNameByIdLive(int monkeyId) {
+        return myRepository.getMonkeyNameByIdLive(monkeyId);
+    }
+
+    public LiveData<Integer> getMonkeyIdByNameLive(String monkeyName) {
+        return myRepository.getMonkeyIdByNameLive(monkeyName);
     }
 
     public void insertRecords(Record... records) {
