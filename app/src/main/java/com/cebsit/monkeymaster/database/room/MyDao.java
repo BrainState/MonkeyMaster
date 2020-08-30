@@ -1,4 +1,4 @@
-package com.cebsit.monkeymaster.database;
+package com.cebsit.monkeymaster.database.room;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,6 +7,10 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
+
+import com.cebsit.monkeymaster.database.Monkey;
+import com.cebsit.monkeymaster.database.MonkeyWithRecords;
+import com.cebsit.monkeymaster.database.Record;
 
 import java.util.List;
 
@@ -42,8 +46,14 @@ public interface MyDao {
     @Query("SELECT * FROM monkeys ORDER BY monkey_id DESC")
     LiveData<List<Monkey>> getAllMonkeysLive();
 
-    @Query("SELECT * FROM monkeys WHERE monkey_name = :selected_monkey_names")
-    LiveData<Monkey> getMonkeyByName(String selected_monkey_names);
+    @Query("SELECT monkey_name FROM monkeys")
+    LiveData<List<String>> getAllMonkeysNameLive();
+
+    @Query("SELECT monkey_id FROM monkeys WHERE monkey_name LIKE :selected_monkey_name")
+    LiveData<Integer> getMonkeyIdByName(String selected_monkey_name);
+
+    @Query("SELECT monkey_name FROM monkeys WHERE monkey_id LIKE :selected_monkey_id ")
+    LiveData<String> getMonkeyNameById(int selected_monkey_id);
 
     @Transaction
     @Query("SELECT * FROM monkeys")

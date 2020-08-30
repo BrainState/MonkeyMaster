@@ -1,10 +1,13 @@
-package com.cebsit.monkeymaster.database;
+package com.cebsit.monkeymaster.database.room;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.cebsit.monkeymaster.database.Monkey;
+import com.cebsit.monkeymaster.database.Record;
 
 
 @Database(entities = {Record.class, Monkey.class},version = 1,exportSchema = false)

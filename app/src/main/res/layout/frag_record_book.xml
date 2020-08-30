@@ -17,6 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ui.main.recordbook.RecordBookFrag"
+        tools:context=".main.main.recordbook.RecordBookFrag"
         tools:listitem="@layout/cell_record" />
 </androidx.constraintlayout.widget.ConstraintLayout>

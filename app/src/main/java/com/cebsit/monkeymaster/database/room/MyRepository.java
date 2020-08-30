@@ -1,9 +1,12 @@
-package com.cebsit.monkeymaster.database;
+package com.cebsit.monkeymaster.database.room;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+
+import com.cebsit.monkeymaster.database.Monkey;
+import com.cebsit.monkeymaster.database.Record;
 
 import java.util.List;
 
@@ -53,8 +56,20 @@ public class MyRepository {
         return myDao.getAllMonkeysLive();
     }
 
+    public LiveData<List<String>> getAllMonkeysNameLive() {
+        return myDao.getAllMonkeysNameLive();
+    }
+
     public LiveData<List<Record>> getAllRecordsLive() {
         return myDao.getAllRecordsLive();
+    }
+
+    public LiveData<Integer> getMonkeyIdByName(String monkey_name) {
+        return myDao.getMonkeyIdByName(monkey_name);
+    }
+
+    public LiveData<String> getMonkeyNameById(int monkey_id) {
+        return myDao.getMonkeyNameById(monkey_id);
     }
 
     static class InsertMonkeysAsyncTask extends AsyncTask<Monkey, Void, Void> {

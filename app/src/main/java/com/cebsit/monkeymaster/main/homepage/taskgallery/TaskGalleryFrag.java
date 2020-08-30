@@ -1,4 +1,4 @@
-package com.cebsit.monkeymaster.ui.taskgallery;
+package com.cebsit.monkeymaster.main.homepage.taskgallery;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -26,6 +26,8 @@ public class TaskGalleryFrag extends Fragment {
         View root = inflater.inflate(R.layout.frag_task_gallery, container, false);
 
         Context context = root.getContext();
+
+        getActivity().findViewById(R.id.fab_save).setVisibility(View.INVISIBLE);
 
         rv_tasks = root.findViewById(R.id.rv_tasks);
         layoutManager = new LinearLayoutManager(context);

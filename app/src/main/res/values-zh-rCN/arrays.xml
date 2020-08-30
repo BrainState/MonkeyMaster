@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="ddp_entries_monkey_gender">
+        <item>雄</item>
+        <item>雌</item>
+    </string-array>
+
+    <string-array name="ddp_entryValues_monkey_gender">
+        <item>Male</item>
+        <item>Famale</item>
+    </string-array>
+</resources>

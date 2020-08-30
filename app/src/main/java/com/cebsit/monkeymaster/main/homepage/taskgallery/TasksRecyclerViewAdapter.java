@@ -1,6 +1,5 @@
-package com.cebsit.monkeymaster.ui.taskgallery;
+package com.cebsit.monkeymaster.main.homepage.taskgallery;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +28,9 @@ public class TasksRecyclerViewAdapter extends RecyclerView.Adapter<TasksRecycler
     public void onBindViewHolder(final TasksRecyclerViewAdapter.ViewHolder holder, final int position) {
         Task task = taskList.get(position);
 
-        holder.tv_id.setText(task.taskId);
-        holder.tv_name.setText(task.taskName);
-        holder.tv_intro.setText(task.intro);
+        holder.tv_id.setText(task.getTaskId());
+        holder.tv_name.setText(task.getTaskName());
+        holder.tv_intro.setText(task.getIntro());
     }
 
     @Override

@@ -7,20 +7,31 @@
 
     <fragment
         android:id="@+id/recordBookNav"
-        android:name="com.cebsit.monkeymaster.ui.recordbook.RecordBookFrag"
-        android:label="@string/menu_record_book"
+        android:name="com.cebsit.monkeymaster.main.homepage.recordbook.RecordBookFrag"
+        android:label="@string/lable_record_book"
         tools:layout="@layout/frag_record_book" />
 
     <fragment
         android:id="@+id/taskGalleryNav"
-        android:name="com.cebsit.monkeymaster.ui.taskgallery.TaskGalleryFrag"
-        android:label="@string/menu_task_gallery"
+        android:name="com.cebsit.monkeymaster.main.homepage.taskgallery.TaskGalleryFrag"
+        android:label="@string/label_task_gallery"
         tools:layout="@layout/frag_task_gallery" />
 
     <fragment
         android:id="@+id/monkeyHouseNav"
-        android:name="com.cebsit.monkeymaster.ui.monkeyhouse.MonkeyHouseFrag"
-        android:label="@string/menu_monkey_house"
+        android:name="com.cebsit.monkeymaster.main.homepage.monkeyhouse.MonkeyHouseFrag"
+        android:label="@string/label_monkey_house"
         tools:layout="@layout/frag_monkey_house" >
+        <action
+            android:id="@+id/action_monkeyHouseNav_to_newMonkeyNav"
+            app:destination="@id/newMonkeyNav" />
+    </fragment>
+    <fragment
+        android:id="@+id/newMonkeyNav"
+        android:name="com.cebsit.monkeymaster.main.newmonkey.NewMonkeyFrag"
+        android:label="NewMonkeyFrag" >
+        <action
+            android:id="@+id/action_newMonkeyNav_to_monkeyHouseNav"
+            app:destination="@id/monkeyHouseNav" />
     </fragment>
 </navigation>

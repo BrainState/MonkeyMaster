@@ -1,4 +1,4 @@
-package com.cebsit.monkeymaster.ui.recordbook;
+package com.cebsit.monkeymaster.main.homepage.recordbook;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.database.Record;
+import com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +38,10 @@ public class RecordsRecyclerViewAdapter extends RecyclerView.Adapter<RecordsRecy
         Record record = myRecordList.get(position);
 
         holder.tv_num.setText(String.valueOf(position));
-        holder.tv_task.setText(record.taskName);
-        //TODO
-//        holder.tv_monkey.setText(record);
-        holder.tv_notes.setText(record.notes);
-        holder.tv_creatingTime.setText(record.creatingTime);
+        holder.tv_task.setText(TasksContent.taskIdMap.get(record.getTaskId()).getTaskName());
+        holder.tv_monkey.setText(record.getMonkey().getMonkeyName());
+        holder.tv_notes.setText(record.getNotes());
+        holder.tv_creatingTime.setText(record.getCreatingTime());
     }
 
     @Override

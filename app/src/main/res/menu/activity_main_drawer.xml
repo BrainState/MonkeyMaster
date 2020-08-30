@@ -7,14 +7,14 @@
         <item
             android:id="@+id/recordBookNav"
             android:icon="@drawable/ic_menu_record_book_24"
-            android:title="@string/menu_record_book" />
+            android:title="@string/lable_record_book" />
         <item
             android:id="@+id/taskGalleryNav"
             android:icon="@drawable/ic_menu_task_gallery_24"
-            android:title="@string/menu_task_gallery" />
+            android:title="@string/label_task_gallery" />
         <item
             android:id="@+id/monkeyHouseNav"
             android:icon="@drawable/ic_menu_monkey_house_24"
-            android:title="@string/menu_monkey_house" />
+            android:title="@string/label_monkey_house" />
     </group>
 </menu>

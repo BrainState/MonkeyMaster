@@ -1,57 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:paddingVertical="@dimen/text_list_margin">
 
-    <TextView
-        android:id="@+id/tv_monkey_num"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_list_margin"
-        android:layout_weight="1.5"
-        android:textAppearance="?attr/textAppearanceListItem" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_monkey_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_list_margin"
-        android:layout_weight="2"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_monkey_num"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_list_margin"
+            android:layout_marginStart="8dp"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_monkey_gender"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_list_margin"
-        android:layout_weight="1.5"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="64dp"
+            android:layout_height="261dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="60dp" />
 
-    <TextView
-        android:id="@+id/tv_monkey_weight"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_list_margin"
-        android:layout_weight="1.5"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        <TextView
+            android:id="@+id/tv_monkey_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/text_list_margin"
+            android:paddingHorizontal="@dimen/text_list_margin"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tb_monkey_details"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_monkey_birthday"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_list_margin"
-        android:layout_weight="2"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        <ToggleButton
+            android:id="@+id/tb_monkey_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ib_margin"
+            android:checked="false"
+            android:textOff="@string/bt_text_monkey_details_off"
+            android:textOn="@string/bt_text_monkey_details_on"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_monkey_age"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_list_margin"
-        android:layout_weight="3"
-        android:textAppearance="?attr/textAppearanceListItem" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_monkey_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/tv_monkey_birthday"
+        app:layout_constraintStart_toEndOf="@+id/tv_monkey_birthday"
+        tools:visibility="visible">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="64dp"
+            android:layout_height="261dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="60dp" />
+
+        <TextView
+            android:id="@+id/tv_monkey_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/text_list_margin"
+            android:paddingHorizontal="@dimen/text_list_margin"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_monkey_weight"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_monkey_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/text_list_margin"
+            android:paddingHorizontal="@dimen/text_list_margin"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_monkey_birthday"
+            app:layout_constraintStart_toEndOf="@+id/tv_monkey_gender"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_monkey_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/text_list_margin"
+            android:paddingHorizontal="@dimen/text_list_margin"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_monkey_age"
+            app:layout_constraintStart_toEndOf="@+id/tv_monkey_weight"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_monkey_age"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/text_list_margin"
+            android:paddingHorizontal="@dimen/text_list_margin"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_monkey_birthday"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ib_monkey_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ib_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ib_monkey_record"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.941"
+            app:srcCompat="@drawable/ic_bt_edit_24" />
+
+        <ImageButton
+            android:id="@+id/ib_monkey_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ib_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ib_monkey_delete"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.47"
+            app:srcCompat="@drawable/ic_bt_record_24" />
+
+        <ImageButton
+            android:id="@+id/ib_monkey_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ib_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_bt_delete_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

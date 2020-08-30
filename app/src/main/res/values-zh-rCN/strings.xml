@@ -5,7 +5,22 @@
     <string name="navigation_drawer_close">关闭导航抽屉</string>
     <string name="nav_header_desc">导航标头</string>
     <string name="action_settings">系统偏好</string>
-    <string name="menu_record_book">记录簿</string>
-    <string name="menu_task_gallery">任务集</string>
-    <string name="menu_monkey_house">猴房</string>
+    <string name="lable_record_book">记录簿</string>
+    <string name="label_task_gallery">任务集</string>
+    <string name="label_monkey_house">猴房</string>
+    <string name="label_new_monkey">新猴子</string>
+    <string name="pc_title_new_monkey">新猴子</string>
+    <string name="etp_title_monkey_name">名字</string>
+    <string name="ddp_title_monkey_gender">性别</string>
+    <string name="etp_title_monkey_weight">体重</string>
+    <string name="etp_title_monkey_birthmonth_year">出生年</string>
+    <string name="etp_title_monkey_birthmonth_month">出生月</string>
+    <string name="snackbar_msg_new_monkey_name_empty">名字不应为空！</string>
+    <string name="snackbar_msg_new_monkey_weight">体重应为一个数字！</string>
+    <string name="snackbar_msg_new_monkey_birthmonth_year">出生年应为一个大于1970而小于当今年的整数！</string>
+    <string name="snackbar_msg_new_monkey_birthmonth_month">出生月应为一个从1到12的整数！</string>
+    <string name="snackbar_msg_new_monkey_name_exist">名字不应与已存在的相重复！</string>
+    <string name="snackbar_msg_success_save">保存成功！</string>
+    <string name="bt_text_monkey_details_off">显示细节</string>
+    <string name="bt_text_monkey_details_on">隐藏细节</string>
 </resources>

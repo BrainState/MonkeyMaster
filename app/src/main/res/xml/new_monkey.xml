@@ -1,0 +1,34 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/pc_title_new_monkey">
+
+        <EditTextPreference
+            app:key="new_monkey_name"
+            app:title="@string/etp_title_monkey_name"
+            app:useSimpleSummaryProvider="true" />
+
+        <DropDownPreference
+            app:key="new_monkey_gender"
+            app:title="@string/ddp_title_monkey_gender"
+            app:entries="@array/ddp_entries_monkey_gender"
+            android:entryValues="@array/ddp_entryValues_monkey_gender"
+            app:defaultValue="true"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="new_monkey_weight"
+            app:title="@string/etp_title_monkey_weight"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="new_monkey_birthmonth_year"
+            app:title="@string/etp_title_monkey_birthmonth_year"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="new_monkey_birthmonth_month"
+            app:title="@string/etp_title_monkey_birthmonth_month"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -20,6 +20,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ui.main.taskgallery.TaskGalleryFrag"
+        tools:context=".main.main.taskgallery.TaskGalleryFrag"
         tools:listitem="@layout/cell_task" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.cebsit.monkeymaster.ui.taskgallery;
+package com.cebsit.monkeymaster.main.homepage.taskgallery;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -11,7 +11,8 @@ import java.util.Map;
 
 public class TasksContent {
     public static List<Task> taskList;
-    public static Map<String, Task> taskMap = new HashMap<>();
+    public static Map<String, Task> taskIdMap = new HashMap<>();
+    public static Map<String, Task> taskNameMap = new HashMap<>();
 
     public static List<Task> getTasksFromJson (InputStream is) throws Exception {
         byte[] buffer = new byte[is.available()];

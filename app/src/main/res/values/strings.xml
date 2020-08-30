@@ -7,7 +7,26 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">System Preferences</string>
 
-    <string name="menu_record_book">Record Book</string>
-    <string name="menu_task_gallery">Task Gallery</string>
-    <string name="menu_monkey_house">Monkey House</string>
+    <string name="lable_record_book">Record Book</string>
+    <string name="label_task_gallery">Task Gallery</string>
+    <string name="label_monkey_house">Monkey House</string>
+    <string name="label_new_monkey">New Monkey</string>
+
+    <string name="snackbar_msg_success_save">Success save!</string>
+    <string name="snackbar_msg_new_monkey_name_empty">Name should not be empty!</string>
+    <string name="snackbar_msg_new_monkey_name_exist">Name should not be duplicate with exist name!</string>
+    <string name="snackbar_msg_new_monkey_weight">Weight should be a number!</string>
+    <string name="snackbar_msg_new_monkey_birthmonth_year">Birth year should be an integer from 1970 to now!</string>
+    <string name="snackbar_msg_new_monkey_birthmonth_month">Birth month should be an integer form 1 to 12!</string>
+
+    <!-- Preference Titles -->
+    <string name="pc_title_new_monkey">New Monkey</string>
+    <string name="etp_title_monkey_name">Name</string>
+    <string name="ddp_title_monkey_gender">Gender</string>
+    <string name="etp_title_monkey_weight">Weight</string>
+    <string name="etp_title_monkey_birthmonth_year">Birth Year</string>
+    <string name="etp_title_monkey_birthmonth_month">Birth Month</string>
+
+    <string name="bt_text_monkey_details_off">Show Details</string>
+    <string name="bt_text_monkey_details_on">Hide Details</string>
 </resources>
