@@ -67,7 +67,7 @@ public class NewMonkeyFrag extends PreferenceFragmentCompat {
                     mainViewModel.insertMonkeys(monkey);
                     Snackbar.make(view, getResources().getString(R.string.snackbar_msg_success_save), Snackbar.LENGTH_LONG).setAction("Action", null).show();
                     fab_save.setVisibility(View.INVISIBLE);
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_newMonkeyNav_to_monkeyHouseNav);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_newMonkeyFrag_to_monkeyHouseFrag);
                 }
             }
         });

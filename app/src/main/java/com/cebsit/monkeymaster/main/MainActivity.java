@@ -2,7 +2,6 @@ package com.cebsit.monkeymaster.main;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -15,7 +14,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.main.homepage.taskgallery.Task;
 import com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.InputStream;
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout_main);
         NavigationView navigationView = findViewById(R.id.nv_main);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.recordBookNav, R.id.taskGalleryNav, R.id.monkeyHouseNav)
+                R.id.recordBookFrag, R.id.taskGalleryFrag, R.id.monkeyHouseFrag)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);

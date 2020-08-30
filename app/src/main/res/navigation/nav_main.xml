@@ -3,35 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@+id/recordBookNav">
+    app:startDestination="@+id/recordBookFrag">
 
     <fragment
-        android:id="@+id/recordBookNav"
+        android:id="@+id/recordBookFrag"
         android:name="com.cebsit.monkeymaster.main.homepage.recordbook.RecordBookFrag"
         android:label="@string/lable_record_book"
-        tools:layout="@layout/frag_record_book" />
+        tools:layout="@layout/frag_record_book" >
+        <action
+            android:id="@+id/action_recordBookFrag_to_newRecordFrag"
+            app:destination="@id/newRecordFrag" />
+    </fragment>
 
     <fragment
-        android:id="@+id/taskGalleryNav"
+        android:id="@+id/taskGalleryFrag"
         android:name="com.cebsit.monkeymaster.main.homepage.taskgallery.TaskGalleryFrag"
         android:label="@string/label_task_gallery"
         tools:layout="@layout/frag_task_gallery" />
 
     <fragment
-        android:id="@+id/monkeyHouseNav"
+        android:id="@+id/monkeyHouseFrag"
         android:name="com.cebsit.monkeymaster.main.homepage.monkeyhouse.MonkeyHouseFrag"
         android:label="@string/label_monkey_house"
         tools:layout="@layout/frag_monkey_house" >
         <action
-            android:id="@+id/action_monkeyHouseNav_to_newMonkeyNav"
-            app:destination="@id/newMonkeyNav" />
+            android:id="@+id/action_monkeyHouseFrag_to_newMonkeyFrag"
+            app:destination="@id/newMonkeyFrag" />
     </fragment>
     <fragment
-        android:id="@+id/newMonkeyNav"
+        android:id="@+id/newMonkeyFrag"
         android:name="com.cebsit.monkeymaster.main.newmonkey.NewMonkeyFrag"
         android:label="NewMonkeyFrag" >
         <action
-            android:id="@+id/action_newMonkeyNav_to_monkeyHouseNav"
-            app:destination="@id/monkeyHouseNav" />
+            android:id="@+id/action_newMonkeyFrag_to_monkeyHouseFrag"
+            app:destination="@id/monkeyHouseFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/newRecordFrag"
+        android:name="com.cebsit.monkeymaster.main.newrecord.NewRecordFrag"
+        android:label="NewRecordFrag" >
+        <action
+            android:id="@+id/action_newRecordFrag_to_recordBookFrag"
+            app:destination="@id/recordBookFrag" />
     </fragment>
 </navigation>

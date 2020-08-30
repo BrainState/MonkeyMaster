@@ -52,7 +52,7 @@ public class MonkeyHouseFrag extends Fragment {
         rv_monkeys.setAdapter(monkeysRecyclerViewAdapter);
         rv_monkeys.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
 
-        root.findViewById(R.id.fab_add_monkey).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_monkeyHouseNav_to_newMonkeyNav));
+        root.findViewById(R.id.fab_add_monkey).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_monkeyHouseFrag_to_newMonkeyFrag));
 
         return root;
     }
