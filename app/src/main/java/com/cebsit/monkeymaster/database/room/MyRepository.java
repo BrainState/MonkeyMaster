@@ -14,14 +14,12 @@ public class MyRepository {
     private MyDao myDao;
     private LiveData<List<Monkey>> allMonkeysLive;
     private LiveData<List<Record>> allRecordsLive;
-    private LiveData<List<String>> allMonkeysNameLive;
 
     public MyRepository(Context context) {
         MyDatabase myDatabase = MyDatabase.getDatabase(context.getApplicationContext());
         myDao = myDatabase.getMyDao();
         allMonkeysLive = myDao.getAllMonkeysLive();
         allRecordsLive = myDao.getAllRecordsLive();
-        allMonkeysNameLive = myDao.getAllMonkeysNameLive();
     }
 
     public void insertMonkeys(Monkey... monkeys) {
@@ -60,20 +58,8 @@ public class MyRepository {
         return myDao.getAllMonkeysLive();
     }
 
-    public LiveData<List<String>> getAllMonkeysNameLive() {
-        return myDao.getAllMonkeysNameLive();
-    }
-
     public LiveData<List<Record>> getAllRecordsLive() {
         return myDao.getAllRecordsLive();
-    }
-
-    public LiveData<Integer> getMonkeyIdByNameLive(String monkey_name) {
-        return myDao.getMonkeyIdByNameLive(monkey_name);
-    }
-
-    public LiveData<String> getMonkeyNameByIdLive(int monkey_id) {
-        return myDao.getMonkeyNameByIdLive(monkey_id);
     }
 
     static class InsertMonkeysAsyncTask extends AsyncTask<Monkey, Void, Void> {

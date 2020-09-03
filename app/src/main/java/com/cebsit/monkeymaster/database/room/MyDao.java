@@ -46,15 +46,6 @@ public interface MyDao {
     @Query("SELECT * FROM monkeys ORDER BY monkey_id DESC")
     LiveData<List<Monkey>> getAllMonkeysLive();
 
-    @Query("SELECT monkey_name FROM monkeys")
-    LiveData<List<String>> getAllMonkeysNameLive();
-
-    @Query("SELECT monkey_id FROM monkeys WHERE monkey_name LIKE :monkey_name")
-    LiveData<Integer> getMonkeyIdByNameLive(String monkey_name);
-
-    @Query("SELECT monkey_name FROM monkeys WHERE monkey_id LIKE :monkey_id ")
-    LiveData<String> getMonkeyNameByIdLive(int monkey_id);
-
     @Transaction
     @Query("SELECT * FROM monkeys")
     List<MonkeyWithRecords> getMonkeyWithRecords();

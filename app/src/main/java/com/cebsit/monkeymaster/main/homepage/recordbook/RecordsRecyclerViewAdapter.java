@@ -1,21 +1,19 @@
 package com.cebsit.monkeymaster.main.homepage.recordbook;
 
-import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.database.Record;
-import com.cebsit.monkeymaster.main.MainViewModel;
+import com.cebsit.monkeymaster.main.MainActivity;
 import com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent;
+import com.cebsit.monkeymaster.tasks.allshared.TaskActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +40,21 @@ public class RecordsRecyclerViewAdapter extends RecyclerView.Adapter<RecordsRecy
 
     @Override
     public void onBindViewHolder(final RecordsRecyclerViewAdapter.ViewHolder holder, int position) {
-        Record record = myRecordList.get(position);
+        final Record record = myRecordList.get(position);
         holder.tv_num.setText(String.valueOf(myRecordList.size() - position));
         holder.tv_task.setText(TasksContent.taskIdMap.get(record.getTaskId()).getTaskName());
         holder.tv_monkey.setText(record.getMonkey().getMonkeyName());
         holder.tv_notes.setText(record.getNotes());
         holder.tv_creatingTime.setText(record.getCreatingTime());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), TaskActivity.class);
+                intent.putExtra("taskId", record.getTaskId());
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -29,28 +29,6 @@ public class MainViewModel extends AndroidViewModel {
         return myRepository.getAllMonkeysLive();
     }
 
-    public LiveData<List<String>> getAllMonkeysNameLive() {
-        return myRepository.getAllMonkeysNameLive();
-    }
-
-//    public List<String> getAllMonkeysNameList() {
-//        LiveData<List<String>> allMonkeysNameLive = myRepository.getAllMonkeysNameLive();
-//        return allMonkeysNameLive.getValue();
-//    }
-//
-//    public String[] getAllMonkeysName() {
-//        List<String> monkeysNameList = getAllMonkeysNameList();
-//        return monkeysNameList.toArray(new String[monkeysNameList.size()]);
-//    }
-
-    public LiveData<String> getMonkeyNameByIdLive(int monkeyId) {
-        return myRepository.getMonkeyNameByIdLive(monkeyId);
-    }
-
-    public LiveData<Integer> getMonkeyIdByNameLive(String monkeyName) {
-        return myRepository.getMonkeyIdByNameLive(monkeyName);
-    }
-
     public void insertRecords(Record... records) {
         myRepository.insertRecords(records);
     }
