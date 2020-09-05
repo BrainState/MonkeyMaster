@@ -32,4 +32,12 @@
         app:srcCompat="@drawable/ic_bt_save_24"
         android:visibility="invisible"/>
 
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

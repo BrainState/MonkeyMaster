@@ -36,6 +36,7 @@ import java.util.List;
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.getTasksCount;
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.monkeyNameMap;
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskIdMap;
+import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskList;
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskNameMap;
 
 
@@ -65,8 +66,15 @@ public class NewRecordFrag extends PreferenceFragmentCompat {
         monkeyPref.setEntries(monkeysName);
         monkeyPref.setEntryValues(monkeysName);
 
-        String[] taskNames = taskNameMap.keySet().toArray(new String[getTasksCount()]);
-        String[] taskIds = taskIdMap.keySet().toArray(new String[getTasksCount()]);
+//        String[] taskNames = taskNameMap.keySet().toArray(new String[getTasksCount()]);
+        String[] taskNames = new String[getTasksCount()];
+//        String[] taskIds = taskIdMap.keySet().toArray(new String[getTasksCount()]);
+        String[] taskIds = new String[getTasksCount()];
+
+        for (int i=0;i<getTasksCount();i++) {
+            taskNames[i] = taskList.get(i).getTaskName();
+            taskIds[i] = taskList.get(i).getTaskId();
+        }
         taskPref.setEntries(taskNames);
         taskPref.setEntryValues(taskIds);
 

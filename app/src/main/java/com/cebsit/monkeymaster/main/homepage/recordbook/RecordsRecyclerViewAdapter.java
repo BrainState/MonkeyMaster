@@ -13,7 +13,7 @@ import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.database.Record;
 import com.cebsit.monkeymaster.main.MainActivity;
 import com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent;
-import com.cebsit.monkeymaster.tasks.allshared.TaskActivity;
+import com.cebsit.monkeymaster.tasks.preview.TaskPrefsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,11 @@ public class RecordsRecyclerViewAdapter extends RecyclerView.Adapter<RecordsRecy
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), TaskActivity.class);
+//                Intent intent = new Intent();
+//                intent.setAction(record.getTaskId());
+//                view.getContext().startActivity(intent);
+
+                Intent intent = new Intent(view.getContext(), TaskPrefsActivity.class);
                 intent.putExtra("taskId", record.getTaskId());
                 view.getContext().startActivity(intent);
             }

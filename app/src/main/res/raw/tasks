@@ -8,5 +8,10 @@
     "taskId":"t002",
     "taskName": "Object Discrimination",
     "intro": "Subjects shown a stimuli, and then must choose them from up to 3 distractors. "
+  },
+  {
+    "taskId":"t003",
+    "taskName": "Spatial response",
+    "intro": "The task is similar to object discrimination task. The subject is required to select a previously highlighted location among up to three distractors to receive reward. The event flow of the task is taskOnsetCue --> delay 1 -->Sample --> delay 2--> response. The aim of the task is to test the working memory capacity. "
   }
 ]

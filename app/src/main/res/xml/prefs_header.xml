@@ -1,0 +1,20 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        app:icon="@drawable/messages"
+        app:key="prefs_header"
+        app:title="@string/messages_header" />
+
+    <Preference
+        app:fragment="com.cebsit.monkeymaster.tasks.preview.TaskPrefsActivity$SystemPrefsFrag"
+        app:icon="@drawable/sync"
+        app:key="sync_header"
+        app:title="@string/sync_header" />
+
+    <Preference
+        app:fragment="com.cebsit.monkeymaster.tasks.preview.TaskPrefsActivity$SharedPrefsFrag"
+        app:icon="@drawable/sync"
+        app:key="sync_header"
+        app:title="@string/sync_header" />
+
+</PreferenceScreen>

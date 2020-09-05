@@ -9,6 +9,45 @@
         <item>Male</item>
         <item>Famale</item>
     </string-array>
+
+
+    <string-array name="lp_entries_colourNames">
+        <item>White</item>
+        <item>Black</item>
+        <item>Grey</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Fuchsia</item>
+        <item>Red</item>
+        <item>Silver</item>
+        <item>Olive</item>
+        <item>Purple</item>
+        <item>Maroon</item>
+        <item>Aqua</item>
+        <item>Lime</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Navy</item>
+    </string-array>
+
+    <string-array name="lp_entryValues_colourNames">
+        <item>White</item>
+        <item>Black</item>
+        <item>Grey</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Fuchsia</item>
+        <item>Red</item>
+        <item>Silver</item>
+        <item>Olive</item>
+        <item>Purple</item>
+        <item>Maroon</item>
+        <item>Aqua</item>
+        <item>Lime</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Navy</item>
+    </string-array>
     <!-- Reply Preference -->
     <string-array name="reply_entries">
         <item>Reply</item>

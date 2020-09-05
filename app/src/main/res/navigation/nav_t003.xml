@@ -2,12 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_t002"
+    android:id="@+id/nav_t003"
     app:startDestination="@id/taskPrefsFrag"
     tools:ignore="UnusedNavigation">
 
     <fragment
-        android:id="@+id/taskPrefsFrag"
-        android:name="com.cebsit.monkeymaster.tasks.t002.Activity_t002$TaskPrefFrag_t002"
+        android:id="@+id/taskPrefsFrag_t002"
+        android:name="com.cebsit.monkeymaster.tasks.t003.Activity_t003$TaskPrefFrag_t003"
         android:label="Task Preferences" />
+    <fragment
+        android:id="@+id/taskPrefsFrag_all"
+        android:name="com.cebsit.monkeymaster.tasks.allshared.TaskPrefsFrag_all"
+        android:label="TaskPrefsFrag_all" />
 </navigation>

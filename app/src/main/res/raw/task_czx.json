@@ -1,0 +1,161 @@
+[
+  
+  
+  {
+    "id":"t000",
+    "name": "Native Training",
+    "info": "The subject will receive reward at random time points. The screen will display the REWARD color. The purpose of the task is to get the subject accustomed to the setup ",
+    "taskPrefsKeys":
+    [
+      "backgroundColour s",
+	  "rewardColor s",
+	  "rewardStartTime i",
+      "rewardDuration i",
+    ]
+  }, // ?? czx 20200824
+  
+  {
+    "id":"t001",
+    "name": "Touch Training",
+    "info": "The subject has to touch a foreground cue to receive reward. The size and location of the foreground cue can varied according to the task settings (see below). The task aims to train the subject to learn to touch the screen to receive reward",
+    "taskPrefsKeys":
+    [
+      "screenColour s", // background color?
+	  "foregroundCueColor s",
+	  
+	  "xCue i",
+	  "yCue i",
+	  "xCoordinate i", // the width of the cue? and how about the location of the cue
+      "yCoordinate i", 
+	  "ifFixedLoc b",
+	  
+	  "shrinkScaling i",
+      "ifShrinkGeometrically b"
+	  "ifTouchPrevention b",
+	  
+      "numPresses i", 
+	  
+	  "cueDuration i",
+	  "cueWaitDuration i",
+	  "idleTimeOut i",
+	  "errorDuration i",
+	  "preRewardDelay i",
+      "rewardStartTime i",
+      "rewardDuration i",
+
+    ]
+  },
+  
+  
+  {
+    "id":"t002",
+    "name": "Object Discrimination",
+    "info": "The subject is required to select a previously seen object among up to three distractors to receive reward. The event flow of the task is taskOnsetCue --> delay 1 -->Sample --> delay 2--> response. The aim of the task is to test the learning abilities of the monkey and also memory capacity and also object preference ",
+    "taskPrefsKeys":
+    [
+      "backgroundColor s", // background color?
+	  "foregroundCueColor s",
+	  "numDistractors i",
+	  "targetColor s",
+	  "distractorColor s",
+	  "objectLibrary s",
+	  
+	  "cueDuration i",
+	  "cueWaitDuration i",
+	  "idleTimeOut i",
+	  "errorDuration i",
+	  "preSampleDelay i",
+	  "sampleDuration i",
+	  "postSampleDelay i",
+	  "goWaitDuration i",
+	  "preRewardDelay i",
+      "rewardStartTime i",
+      "rewardDuration i",
+
+    ]
+  },
+  
+  
+    {
+    "id":"t003",
+    "name": "Spatial response",
+    "info": "The task is similar to object discrimination task. The subject is required to select a previously highlighted location among up to three distractors to receive reward. The event flow of the task is taskOnsetCue --> delay 1 -->Sample --> delay 2--> response. The aim of the task is to test the working memory capacity ",
+    "taskPrefsKeys":
+    [
+      "backgroundColor s", // background color?
+	  "foregroundCueColor s",
+	  "numDistractors i",
+	  "targetColor s",
+	  "distractorColor s",
+	  
+	  "cueDuration i",
+	  "cueWaitDuration i",
+	  "idleTimeOut i",
+	  "errorDuration i",
+	  "preSampleDelay i",
+	  "sampleDuration i",
+	  "postSampleDelay i",
+	  "goWaitDuration i",
+	  "preRewardDelay i",
+      "rewardStartTime i",
+      "rewardDuration i",
+
+    ]
+  },
+  
+    {
+    "id":"t004",
+    "name": "Delayed non-matched to sample task",
+    "info": "The subject is required to avoid a previously seen object among up to three distractors to receive reward. The event flow of the task is taskOnsetCue --> delay 1 -->Sample --> delay 2--> response. The aim of the task is to test the learning abilities of the monkey and also memory capacity ",
+    "taskPrefsKeys":
+    [
+      "backgroundColor s", // background color?
+	  "foregroundCueColor s",
+	  "numDistractors i",
+	  "targetColor s",
+	  "distractorColor s",
+	  
+	  "cueDuration i",
+	  "cueWaitDuration i",
+	  "idleTimeOut i",
+	  "errorDuration i",
+	  "preSampleDelay i",
+	  "sampleDuration i",
+	  "postSampleDelay i",
+	  "goWaitDuration i",
+	  "preRewardDelay i",
+      "rewardStartTime i",
+      "rewardDuration i",
+
+    ]
+  },
+  
+      {
+    "id":"t005",
+    "name": "Wiscosin Card Sorting Task",
+    "info": "The task is used to test the cognitive flexibility of the subjects. A deck of cards can be sorted according to different rules, for example, color, shape, or number. The time flow of event is taskOnsetCue --> delay 1 -->Sample --> delay 2--> response. A transition probability is controling the transition probability among different rules  ",
+    "taskPrefsKeys":
+    [
+      "backgroundColor s", // background color?
+	  "foregroundCueColor s",
+	  "currentRule s",
+	  "pTransition i",
+
+	  "cueDuration i",
+	  "cueWaitDuration i",
+	  "idleTimeOut i",
+	  "errorDuration i",
+	  "preSampleDelay i",
+	  "sampleDuration i",
+	  "postSampleDelay i",
+	  "goWaitDuration i",
+	  "preRewardDelay i",
+      "rewardStartTime i",
+      "rewardDuration i",
+
+    ]
+  },
+  
+  
+
+  
