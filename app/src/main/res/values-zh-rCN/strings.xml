@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">关闭导航抽屉</string>
     <string name="nav_header_desc">导航标头</string>
     <string name="action_settings">系统偏好</string>
-    <string name="lable_record_book">记录簿</string>
+    <string name="label_record_book">记录簿</string>
     <string name="label_task_gallery">任务集</string>
     <string name="label_monkey_house">猴房</string>
     <string name="label_new_monkey">新猴子</string>
@@ -23,4 +23,5 @@
     <string name="snackbar_msg_success_save">保存成功！</string>
     <string name="bt_text_monkey_details_off">显示细节</string>
     <string name="bt_text_monkey_details_on">隐藏细节</string>
+    <string name="label_preferences">偏好</string>
 </resources>

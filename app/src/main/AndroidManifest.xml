@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".tasks.preview.TaskPrefsActivity"
-            android:label="@string/title_activity_task_prefs">
+            android:label="@string/label_preferences">
         </activity>
 
         <activity

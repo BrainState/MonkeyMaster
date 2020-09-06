@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SeekBarPreference;
 
 import com.cebsit.monkeymaster.R;
 
@@ -37,7 +38,7 @@ public class TaskPrefsActivity extends AppCompatActivity implements
                     @Override
                     public void onBackStackChanged() {
                         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-                            setTitle(R.string.title_activity_task_prefs);
+                            setTitle(R.string.label_preferences);
                         }
                     }
                 });
@@ -85,7 +86,7 @@ public class TaskPrefsActivity extends AppCompatActivity implements
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.prefs_header, rootKey);
-            findPreference("prefs_header").setFragment("com.cebsit.monkeymaster.tasks." + taskId +".TaskPrefsFrag_" + taskId);
+            findPreference("prefs_task").setFragment("com.cebsit.monkeymaster.tasks." + taskId +".TaskPrefsFrag_" + taskId);
         }
     }
 
@@ -103,5 +104,6 @@ public class TaskPrefsActivity extends AppCompatActivity implements
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.prefs_shared, rootKey);
         }
+
     }
 }

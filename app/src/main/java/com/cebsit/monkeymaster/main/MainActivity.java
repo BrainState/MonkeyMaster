@@ -20,13 +20,11 @@ import com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.monkeyNameMap;
-import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskList;
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskIdMap;
+import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskList;
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskNameMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         initTasks();
-
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar_main);
@@ -59,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel.getAllMonkeysLive().observe(this, new Observer<List<Monkey>>() {
             @Override
             public void onChanged(List<Monkey> monkeys) {
-                for (Monkey monkey:monkeys) {
+                for (Monkey monkey : monkeys) {
                     monkeyNameMap.put(monkey.getMonkeyName(), monkey);
                 }
             }
@@ -90,10 +87,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private void initMonkeys() {
-
     }
 
 }

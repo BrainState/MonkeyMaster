@@ -7,10 +7,11 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">System Preferences</string>
 
-    <string name="lable_record_book">Record Book</string>
+    <string name="label_record_book">Record Book</string>
     <string name="label_task_gallery">Task Gallery</string>
     <string name="label_monkey_house">Monkey House</string>
     <string name="label_new_monkey">New Monkey</string>
+    <string name="label_preferences">Preferences</string>
 
     <string name="snackbar_msg_success_save">Success save!</string>
     <string name="snackbar_msg_new_monkey_name_empty">Name should not be empty!</string>
@@ -19,7 +20,7 @@
     <string name="snackbar_msg_new_monkey_birthmonth_year">Birth year should be an integer from 1970 to now!</string>
     <string name="snackbar_msg_new_monkey_birthmonth_month">Birth month should be an integer form 1 to 12!</string>
 
-    <!-- Preference Titles -->
+    <!-- Preferences Titles -->
     <string name="pc_title_new_monkey">New Monkey</string>
     <string name="etp_title_monkey_name">Name</string>
     <string name="ddp_title_monkey_gender">Gender</string>
@@ -29,19 +30,5 @@
 
     <string name="bt_text_monkey_details_off">Show Details</string>
     <string name="bt_text_monkey_details_on">Hide Details</string>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="title_activity_task_prefs">Task Preferences</string>
 </resources>

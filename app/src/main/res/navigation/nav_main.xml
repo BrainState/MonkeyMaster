@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/recordBookFrag"
         android:name="com.cebsit.monkeymaster.main.homepage.recordbook.RecordBookFrag"
-        android:label="@string/lable_record_book"
+        android:label="@string/label_record_book"
         tools:layout="@layout/frag_record_book" >
         <action
             android:id="@+id/action_recordBookFrag_to_newRecordFrag"

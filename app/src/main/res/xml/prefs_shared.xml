@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory
-        app:key="reward_time_settings"
-        app:title="Reward Time Setting">
+    <PreferenceCategory app:title="Reward Time Setting">
 
         <SeekBarPreference
             android:max="10000"
             app:defaultValue="1500"
             app:key="rewardDuration"
             app:title="Reward duration (ms)" />
+
+        <SeekBarPreference
+            android:max="10000"
+            app:defaultValue="1500"
+            app:key="intervalPreReward"
+            app:title="Interval Pre-Reward (ms)" />
+
+        <SeekBarPreference
+            android:max="10000"
+            app:defaultValue="1500"
+            app:key="intervalPostReward"
+            app:title="Interval Post-Reward (ms)" />
+
+        <SwitchPreferenceCompat
+            android:summary="Device will beep on successful trials to aid secondary reinforcement"
+            app:defaultValue="ture"
+            app:key="sound"
+            app:title="Enable sounds" />
+
     </PreferenceCategory>
 
-    <PreferenceCategory
-        app:key="timeout_duration_settings"
-        app:title="Timeout Duration Setting">
+    <PreferenceCategory app:title="Timeout Duration Setting">
 
         <SeekBarPreference
             android:max="60"
@@ -35,11 +49,14 @@
             app:defaultValue="0"
             app:key="timeoutDuration_msec"
             app:title="Timeout duration for error trials (ms)" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            app:key="touchPrevention"
+            app:title="Warning in case tap the non-cue" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        app:key="response_duration_settings"
-        app:title="Response Duration Setting">
+    <PreferenceCategory app:title="Response Duration Setting">
 
         <SeekBarPreference
             android:max="30"
@@ -54,41 +71,73 @@
             app:title="Maximum response duration (seconds)" />
     </PreferenceCategory>
 
-    <!--        <Preference-->
-    <!--            android:summary="Border thickness, border colour, cue size, cue spacing"-->
-    <!--            app:key="cue"-->
-    <!--            app:title="Cue settings" />-->
+    <PreferenceCategory android:title="Cue Setting">
 
-    <ListPreference
-        android:defaultValue="White"
-        android:entries="@array/lp_entries_colourNames"
-        android:entryValues="@array/lp_entryValues_colourNames"
-        app:key="taskBackgroundColour"
-        app:title="Task background colour" />
+        <ListPreference
+            android:defaultValue="White"
+            android:entries="@array/lp_entries_colorNames"
+            android:entryValues="@array/lp_entryValues_colorNames"
+            app:key="cueColor"
+            app:title="Cue color"
+            app:useSimpleSummaryProvider="true"/>
 
-    <ListPreference
-        android:defaultValue="White"
-        android:entries="@array/lp_entries_colourNames"
-        android:entryValues="@array/lp_entryValues_colourNames"
-        app:key="rewardBackgroundColour"
-        app:title="Reward background colour" />
+        <ListPreference
+            android:defaultValue="White"
+            android:entries="@array/lp_entries_colorNames"
+            android:entryValues="@array/lp_entryValues_colorNames"
+            app:key="borderColor"
+            app:title="Cue border color"
+            app:useSimpleSummaryProvider="true"/>
 
-    <ListPreference
-        android:defaultValue="White"
-        android:entries="@array/lp_entries_colourNames"
-        android:entryValues="@array/lp_entryValues_colourNames"
-        app:key="timeoutBackgroundColour"
-        app:title="Timeout background colour" />
+        <SeekBarPreference
+            android:defaultValue="30"
+            android:max="60"
+            app:key="cueSize"
+            app:showSeekBarValue="true"
+            app:title="Cue size (*10 pixels)" />
 
-    <SwitchPreferenceCompat
-        android:summary="Device will beep on successful trials to aid secondary reinforcement"
-        app:defaultValue="ture"
-        app:key="sound"
-        app:title="Enable sounds" />
+        <SeekBarPreference
+            android:defaultValue="2"
+            android:max="8"
+            app:key="cueBorderSize"
+            app:showSeekBarValue="true"
+            app:title="Border thickness (*10 pixels)" />
 
-    <SwitchPreferenceCompat
-        android:defaultValue="false"
-        app:key="touchPrevention"
-        app:title="Warning in case tap the non-cue"/>
+        <SeekBarPreference
+            android:defaultValue="3"
+            android:max="8"
+            android:summary="Minimum spacing between cues on screen (pixels)"
+            app:key="cueSpacing"
+            app:showSeekBarValue="true"
+            app:title="Cue spacing (*10 pixels)" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Background Color Setting">
+        <ListPreference
+            android:defaultValue="White"
+            android:entries="@array/lp_entries_colorNames"
+            android:entryValues="@array/lp_entryValues_colorNames"
+            app:key="taskBackgroundColor"
+            app:title="Task background color"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="White"
+            android:entries="@array/lp_entries_colorNames"
+            android:entryValues="@array/lp_entryValues_colorNames"
+            app:key="rewardBackgroundColor"
+            app:title="Reward background color"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="White"
+            android:entries="@array/lp_entries_colorNames"
+            android:entryValues="@array/lp_entryValues_colorNames"
+            app:key="timeoutBackgroundColor"
+            app:title="Timeout background color"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
 
 </PreferenceScreen>

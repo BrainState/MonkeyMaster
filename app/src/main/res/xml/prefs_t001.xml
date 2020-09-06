@@ -7,8 +7,8 @@
 
         <ListPreference
             android:defaultValue="White"
-            android:entries="@array/lp_entries_colourNames"
-            android:entryValues="@array/lp_entryValues_colourNames"
+            android:entries="@array/lp_entries_colorNames"
+            android:entryValues="@array/lp_entryValues_colorNames"
             app:key="cueColor"
             app:title="Colour of cue" />
     </PreferenceCategory>

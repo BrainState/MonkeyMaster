@@ -3,20 +3,54 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="Preferences shared by all tasks">
-        <Preference
-            app:title="Preferences shared by all tasks"
-            app:fragment="com.cebsit.monkeymaster.tasks.allshared.TaskPrefsFrag_all"/>
-    </PreferenceCategory>
+    <ListPreference
+        android:defaultValue="White"
+        android:key="distractorsNum"
+        android:title="Number of Distractors"
+        app:useSimpleSummaryProvider="true"/>
 
-    <PreferenceCategory app:title="Task Preference">
+    <ListPreference
+        android:defaultValue="White"
+        android:entries="@array/lp_entries_colorNames"
+        android:entryValues="@array/lp_entryValues_colorNames"
+        android:key="stimuliColor"
+        android:title="Color of stimuli"
+        app:useSimpleSummaryProvider="true"/>
 
-        <ListPreference
-            android:defaultValue="White"
-            android:entries="@array/lp_entries_colourNames"
-            android:entryValues="@array/lp_entryValues_colourNames"
-            app:key="cueColor"
-            app:title="Colour of cue" />
-    </PreferenceCategory>
+    <ListPreference
+        android:defaultValue="White"
+        android:entries="@array/lp_entries_colorNames"
+        android:entryValues="@array/lp_entryValues_colorNames"
+        android:key="distractorsColor"
+        android:title="Color of distractors"
+        app:useSimpleSummaryProvider="true"/>
+
+    <EditTextPreference
+        android:defaultValue="750"
+        app:key="intervalPreStimuli"
+        app:title="Interval Pre-Stimuli"
+        android:dialogMessage="Wait time (ms) until the stimuli on"
+        app:useSimpleSummaryProvider="true"/>
+
+    <EditTextPreference
+        android:defaultValue="750"
+        app:key="stimuliDuration"
+        app:title="Stimuli Duration"
+        android:dialogMessage="Duration (ms) to show the stimuli"
+        app:useSimpleSummaryProvider="true"/>
+
+    <EditTextPreference
+        android:defaultValue="750"
+        app:key="intervalPreOptions"
+        app:title="Interval Pre-Options"
+        android:dialogMessage="Wait time (ms) until options on"
+        app:useSimpleSummaryProvider="true"/>
+
+    <EditTextPreference
+        android:defaultValue="750"
+        app:key="optionsDuration"
+        app:title="Options Duration"
+        android:dialogMessage="Duration to show options"
+        app:useSimpleSummaryProvider="true"/>
 
 </PreferenceScreen>
