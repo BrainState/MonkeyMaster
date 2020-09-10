@@ -5,26 +5,26 @@
     <PreferenceCategory app:title="Task Preference">
 
         <ListPreference
-            app:key="numDistractors"
+            app:key="t002_distractorsNum"
             app:title="Number of Distractors"
             android:defaultValue="3"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
             android:defaultValue="750"
-            app:key="durationON"
+            app:key="t002_durationON"
             app:title="Duration (ms) to show the cue"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:defaultValue="500"
-            app:key="startDelay"
+            app:key="t002_startDelay"
             app:title="Wait time (ms) until cue"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:defaultValue="1500"
-            app:key="durationOFF"
+            app:key="t002_durationOFF"
             app:title="Wait time (ms) until choice"
             app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>

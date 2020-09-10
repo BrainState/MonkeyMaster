@@ -7,6 +7,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.preference.EditTextPreference;
+import androidx.preference.ListPreference;
 import androidx.preference.PreferenceFragmentCompat;
 
 public class TaskPrefsFrag_t003 extends PreferenceFragmentCompat implements EditTextPreference.OnBindEditTextListener {
@@ -19,6 +20,10 @@ public class TaskPrefsFrag_t003 extends PreferenceFragmentCompat implements Edit
         taskId = intent.getStringExtra("taskId");
         int identify_xml_task_prefs = getResources().getIdentifier("prefs_" + taskId, "xml", getActivity().getPackageName());
         setPreferencesFromResource(identify_xml_task_prefs, rootKey);
+
+        ListPreference lp_distractorsNum = findPreference("t003_distractorsNum");
+        lp_distractorsNum.setEntries(new String[]{"1", "3", "7"});
+        lp_distractorsNum.setEntryValues(new String[]{"1", "3", "7"});
 
     }
 

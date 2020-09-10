@@ -7,25 +7,25 @@
         <SeekBarPreference
             android:max="10000"
             app:defaultValue="1500"
-            app:key="rewardDuration"
+            app:key="shared_rewardDuration"
             app:title="Reward duration (ms)" />
 
         <SeekBarPreference
             android:max="10000"
             app:defaultValue="1500"
-            app:key="intervalPreReward"
+            app:key="shared_intervalPreReward"
             app:title="Interval Pre-Reward (ms)" />
 
         <SeekBarPreference
             android:max="10000"
             app:defaultValue="1500"
-            app:key="intervalPostReward"
+            app:key="shared_intervalPostReward"
             app:title="Interval Post-Reward (ms)" />
 
         <SwitchPreferenceCompat
             android:summary="Device will beep on successful trials to aid secondary reinforcement"
             app:defaultValue="ture"
-            app:key="sound"
+            app:key="shared_sound"
             app:title="Enable sounds" />
 
     </PreferenceCategory>
@@ -35,24 +35,24 @@
         <SeekBarPreference
             android:max="60"
             app:defaultValue="0"
-            app:key="timeoutDuration_min"
+            app:key="shared_timeoutDuration_min"
             app:title="Timeout duration for error trials (min)" />
 
         <SeekBarPreference
             android:max="60"
             app:defaultValue="10"
-            app:key="timeoutDuration_sec"
+            app:key="shared_timeoutDuration_sec"
             app:title="Timeout duration for error trials (s)" />
 
         <SeekBarPreference
             android:max="1000"
             app:defaultValue="0"
-            app:key="timeoutDuration_msec"
+            app:key="shared_timeoutDuration_msec"
             app:title="Timeout duration for error trials (ms)" />
 
         <SwitchPreferenceCompat
             android:defaultValue="false"
-            app:key="touchPrevention"
+            app:key="shared_touchPrevention"
             app:title="Warning in case tap the non-cue" />
     </PreferenceCategory>
 
@@ -61,13 +61,13 @@
         <SeekBarPreference
             android:max="30"
             app:defaultValue="0"
-            app:key="responseDuration_min"
+            app:key="shared_responseDuration_min"
             app:title="Maximum response duration (minutes)" />
 
         <SeekBarPreference
             android:max="60"
             app:defaultValue="20"
-            app:key="responseDuration_sec"
+            app:key="shared_responseDuration_sec"
             app:title="Maximum response duration (seconds)" />
     </PreferenceCategory>
 
@@ -77,7 +77,7 @@
             android:defaultValue="White"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
-            app:key="cueColor"
+            app:key="shared_cueColor"
             app:title="Cue color"
             app:useSimpleSummaryProvider="true"/>
 
@@ -85,21 +85,21 @@
             android:defaultValue="White"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
-            app:key="borderColor"
+            app:key="shared_borderColor"
             app:title="Cue border color"
             app:useSimpleSummaryProvider="true"/>
 
         <SeekBarPreference
             android:defaultValue="30"
             android:max="60"
-            app:key="cueSize"
+            app:key="shared_cueSize"
             app:showSeekBarValue="true"
             app:title="Cue size (*10 pixels)" />
 
         <SeekBarPreference
             android:defaultValue="2"
             android:max="8"
-            app:key="cueBorderSize"
+            app:key="shared_cueBorderSize"
             app:showSeekBarValue="true"
             app:title="Border thickness (*10 pixels)" />
 
@@ -107,7 +107,7 @@
             android:defaultValue="3"
             android:max="8"
             android:summary="Minimum spacing between cues on screen (pixels)"
-            app:key="cueSpacing"
+            app:key="shared_cueSpacing"
             app:showSeekBarValue="true"
             app:title="Cue spacing (*10 pixels)" />
     </PreferenceCategory>
@@ -117,7 +117,7 @@
             android:defaultValue="White"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
-            app:key="taskBackgroundColor"
+            app:key="shared_taskBackgroundColor"
             app:title="Task background color"
             app:useSimpleSummaryProvider="true" />
 
@@ -125,7 +125,7 @@
             android:defaultValue="White"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
-            app:key="rewardBackgroundColor"
+            app:key="shared_rewardBackgroundColor"
             app:title="Reward background color"
             app:useSimpleSummaryProvider="true" />
 
@@ -133,7 +133,7 @@
             android:defaultValue="White"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
-            app:key="timeoutBackgroundColor"
+            app:key="shared_timeoutBackgroundColor"
             app:title="Timeout background color"
             app:useSimpleSummaryProvider="true" />
 

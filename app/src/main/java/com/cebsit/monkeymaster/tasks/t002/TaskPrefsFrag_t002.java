@@ -22,13 +22,13 @@ public class TaskPrefsFrag_t002 extends PreferenceFragmentCompat implements Edit
         int identify_xml_task_prefs = getResources().getIdentifier("prefs_" + taskId, "xml", getActivity().getPackageName());
         setPreferencesFromResource(identify_xml_task_prefs, rootKey);
 
-        ListPreference lp_numDistractors = findPreference("numDistractors");
+        ListPreference lp_numDistractors = findPreference("t002_distractorsNum");
         lp_numDistractors.setEntries(new String[]{"1", "2", "3"});
         lp_numDistractors.setEntryValues(new String[]{"1", "2", "3"});
 
-        EditTextPreference etp_durationON = findPreference("durationON");
-        EditTextPreference etp_durationOFF = findPreference("durationOFF");
-        EditTextPreference etp_startDelay = findPreference("startDelay");
+        EditTextPreference etp_durationON = findPreference("t002_durationON");
+        EditTextPreference etp_durationOFF = findPreference("t002_durationOFF");
+        EditTextPreference etp_startDelay = findPreference("t002_startDelay");
 
         etp_durationON.setOnBindEditTextListener(this);
         etp_durationOFF.setOnBindEditTextListener(this);

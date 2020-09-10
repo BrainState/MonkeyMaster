@@ -58,8 +58,8 @@ public class NewRecordFrag extends PreferenceFragmentCompat {
 
         sp = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        taskPref = getPreferenceManager().findPreference("new_record_task");
-        monkeyPref = getPreferenceManager().findPreference("new_record_monkey");
+        taskPref = getPreferenceManager().findPreference("record_task");
+        monkeyPref = getPreferenceManager().findPreference("record_monkey");
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         monkeysName = monkeyNameMap.keySet().toArray(new String[monkeyNameMap.size()]);
@@ -84,10 +84,10 @@ public class NewRecordFrag extends PreferenceFragmentCompat {
             @Override
             public void onClick(View view) {
                 final Record newRecord = new Record();
-                newRecord.setTaskId(sp.getString("new_record_task","t001"));
+                newRecord.setTaskId(sp.getString("record_task","t001"));
                 newRecord.setCreatingTime((new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).format(new Time(System.currentTimeMillis())));
-                newRecord.setMonkey(monkeyNameMap.get(sp.getString("new_record_monkey","")));
-                newRecord.setNotes(sp.getString("prefkey_record_notes","not set"));
+                newRecord.setMonkey(monkeyNameMap.get(sp.getString("record_monkey","")));
+                newRecord.setNotes(sp.getString("record_notes","not set"));
 
                 mainViewModel.insertRecords(newRecord);
 

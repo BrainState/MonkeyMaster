@@ -9,7 +9,7 @@
             android:defaultValue="White"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
-            app:key="cueColor"
+            app:key="t001_cueColor"
             app:title="Colour of cue" />
     </PreferenceCategory>
 

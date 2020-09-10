@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListPreference
-        android:defaultValue="White"
-        android:key="distractorsNum"
+        android:defaultValue="7"
+        android:key="t003_distractorsNum"
         android:title="Number of Distractors"
         app:useSimpleSummaryProvider="true"/>
 
@@ -13,7 +13,7 @@
         android:defaultValue="White"
         android:entries="@array/lp_entries_colorNames"
         android:entryValues="@array/lp_entryValues_colorNames"
-        android:key="stimuliColor"
+        android:key="t003_stimuliColor"
         android:title="Color of stimuli"
         app:useSimpleSummaryProvider="true"/>
 
@@ -21,34 +21,34 @@
         android:defaultValue="White"
         android:entries="@array/lp_entries_colorNames"
         android:entryValues="@array/lp_entryValues_colorNames"
-        android:key="distractorsColor"
+        android:key="t003_distractorsColor"
         android:title="Color of distractors"
         app:useSimpleSummaryProvider="true"/>
 
     <EditTextPreference
         android:defaultValue="750"
-        app:key="intervalPreStimuli"
+        app:key="t003_intervalPreStimuli"
         app:title="Interval Pre-Stimuli"
         android:dialogMessage="Wait time (ms) until the stimuli on"
         app:useSimpleSummaryProvider="true"/>
 
     <EditTextPreference
         android:defaultValue="750"
-        app:key="stimuliDuration"
+        app:key="t003_stimuliDuration"
         app:title="Stimuli Duration"
         android:dialogMessage="Duration (ms) to show the stimuli"
         app:useSimpleSummaryProvider="true"/>
 
     <EditTextPreference
         android:defaultValue="750"
-        app:key="intervalPreOptions"
+        app:key="t003_intervalPreOptions"
         app:title="Interval Pre-Options"
         android:dialogMessage="Wait time (ms) until options on"
         app:useSimpleSummaryProvider="true"/>
 
     <EditTextPreference
         android:defaultValue="750"
-        app:key="optionsDuration"
+        app:key="t003_optionsDuration"
         app:title="Options Duration"
         android:dialogMessage="Duration to show options"
         app:useSimpleSummaryProvider="true"/>

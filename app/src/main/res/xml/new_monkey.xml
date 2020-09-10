@@ -4,12 +4,12 @@
     <PreferenceCategory app:title="@string/pc_title_new_monkey">
 
         <EditTextPreference
-            app:key="new_monkey_name"
+            app:key="monkey_name"
             app:title="@string/etp_title_monkey_name"
             app:useSimpleSummaryProvider="true" />
 
         <DropDownPreference
-            app:key="new_monkey_gender"
+            app:key="monkey_gender"
             app:title="@string/ddp_title_monkey_gender"
             app:entries="@array/ddp_entries_monkey_gender"
             android:entryValues="@array/ddp_entryValues_monkey_gender"
@@ -17,17 +17,17 @@
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:key="new_monkey_weight"
+            app:key="monkey_weight"
             app:title="@string/etp_title_monkey_weight"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:key="new_monkey_birthmonth_year"
+            app:key="monkey_birthmonth_year"
             app:title="@string/etp_title_monkey_birthmonth_year"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:key="new_monkey_birthmonth_month"
+            app:key="monkey_birthmonth_month"
             app:title="@string/etp_title_monkey_birthmonth_month"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>

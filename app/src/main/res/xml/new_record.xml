@@ -4,16 +4,16 @@
 
     <PreferenceCategory app:title="New Record">
         <ListPreference
-            app:key="new_record_task"
+            app:key="record_task"
             app:title="Select the task"
             app:useSimpleSummaryProvider="true" />
         <ListPreference
-            app:key="new_record_monkey"
+            app:key="record_monkey"
             app:title="Select the monkey executing the task"
             app:useSimpleSummaryProvider="true" />
         <EditTextPreference
             android:defaultValue="no notes"
-            app:key="new_record_notes"
+            app:key="record_notes"
             app:title="Add notes about this new record"
             app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>

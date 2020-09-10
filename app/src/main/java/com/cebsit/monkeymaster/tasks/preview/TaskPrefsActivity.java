@@ -1,6 +1,8 @@
 package com.cebsit.monkeymaster.tasks.preview;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,22 +10,28 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 import androidx.preference.SeekBarPreference;
 
 import com.cebsit.monkeymaster.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.cebsit.monkeymaster.main.homepage.recordbook.RecordsPrefsSaveHelper;
+
+import java.util.Map;
 
 public class TaskPrefsActivity extends AppCompatActivity implements
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     private static final String TITLE_TAG = "settingsActivityTitle";
     private static String taskId;
-
+    private static String spFileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
         taskId = getIntent().getStringExtra("taskId");
+        spFileName = getIntent().getStringExtra("spFileName");
 
         if (savedInstanceState == null) {
             getSupportFragmentManager()
@@ -46,6 +54,14 @@ public class TaskPrefsActivity extends AppCompatActivity implements
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        FloatingActionButton fab_save_prefs = findViewById(R.id.fab_save_prefs);
+        fab_save_prefs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RecordsPrefsSaveHelper.saveRecordPrefs(view.getContext(), spFileName, taskId);
+            }
+        });
     }
 
     @Override
@@ -104,6 +120,5 @@ public class TaskPrefsActivity extends AppCompatActivity implements
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.prefs_shared, rootKey);
         }
-
     }
 }
