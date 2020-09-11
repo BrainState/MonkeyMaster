@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_t003"
+    app:startDestination="@id/cueFrag_t003"
+    tools:ignore="UnusedNavigation">
+    <fragment
+        android:id="@+id/cueFrag_t003"
+        android:name="com.cebsit.monkeymaster.tasks.t003.display.CueFrag_t003"
+        android:label="CueFrag" >
+        <action
+            android:id="@+id/action_t003_cueFrag_to_stimuliFrag"
+            app:destination="@id/stimuliFrag_t003" />
+    </fragment>
+    <fragment
+        android:id="@+id/stimuliFrag_t003"
+        android:name="com.cebsit.monkeymaster.tasks.t003.display.StimuliFrag_t003"
+        android:label="StimuliFrag_t003" >
+        <action
+            android:id="@+id/action_t003_stimuliFrag_to_optionsFrag"
+            app:destination="@id/optionsFrag_t003" />
+    </fragment>
+    <fragment
+        android:id="@+id/optionsFrag_t003"
+        android:name="com.cebsit.monkeymaster.tasks.t003.display.OptionsFrag_t003"
+        android:label="OptionsFrag_t003" >
+        <action
+            android:id="@+id/action_t003_optionsFrag_to_rewardFrag"
+            app:destination="@id/rewardFrag_t003" />
+        <action
+            android:id="@+id/action_t003_optionsFrag_to_errorFrag"
+            app:destination="@id/errorFrag_t003" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardFrag_t003"
+        android:name="com.cebsit.monkeymaster.tasks.t003.display.RewardFrag_t003"
+        android:label="RewardFrag" >
+        <action
+            android:id="@+id/action_t003_rewardFrag_to_intervalFrag"
+            app:destination="@id/intervalFrag_t003" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorFrag_t003"
+        android:name="com.cebsit.monkeymaster.tasks.t003.display.ErrorFrag_t003"
+        android:label="ErrorFrag" >
+        <action
+            android:id="@+id/action_t003_errorFrag_to_intervalFrag"
+            app:destination="@id/intervalFrag_t003" />
+    </fragment>
+    <fragment
+        android:id="@+id/intervalFrag_t003"
+        android:name="com.cebsit.monkeymaster.tasks.t003.display.IntervalFrag_t003"
+        android:label="EmptyFrag" >
+        <action
+            android:id="@+id/action_t003_intervalFrag_to_cueFrag"
+            app:destination="@id/cueFrag_t003" />
+    </fragment>
+</navigation>

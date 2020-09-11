@@ -45,12 +45,12 @@ public class NewMonkeyFrag extends PreferenceFragmentCompat {
             @Override
             public void onClick(View view) {
                 Monkey monkey = new Monkey();
-                monkey.setMonkeyName(sp.getString("new_monkey_name", ""));
-                monkey.setGender(sp.getString("new_monkey_gender", "Male"));
-                monkey.setWeight(Double.parseDouble(sp.getString("new_monkey_weight", "0")));
+                monkey.setMonkeyName(sp.getString("monkey_name", ""));
+                monkey.setGender(sp.getString("monkey_gender", "Male"));
+                monkey.setWeight(Double.parseDouble(sp.getString("monkey_weight", "0")));
                 Monkey.Birthmonth birthmonth = new Monkey.Birthmonth();
-                birthmonth.setYear(Integer.parseInt(sp.getString("new_monkey_birthmonth_year", "0")));
-                birthmonth.setMonth(Integer.parseInt(sp.getString("new_monkey_birthmonth_month", "0")));
+                birthmonth.setYear(Integer.parseInt(sp.getString("monkey_birthmonth_year", "0")));
+                birthmonth.setMonth(Integer.parseInt(sp.getString("monkey_birthmonth_month", "0")));
                 monkey.setBirthmonth(birthmonth);
 
                 int presentYear = UtilsSystem.timeIntConverter("yyyy");

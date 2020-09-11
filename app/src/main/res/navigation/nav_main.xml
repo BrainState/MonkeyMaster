@@ -9,7 +9,7 @@
         android:id="@+id/recordBookFrag"
         android:name="com.cebsit.monkeymaster.main.homepage.recordbook.RecordBookFrag"
         android:label="@string/label_record_book"
-        tools:layout="@layout/frag_record_book" >
+        tools:layout="@layout/frag_main_homepage_record_book" >
         <action
             android:id="@+id/action_recordBookFrag_to_newRecordFrag"
             app:destination="@id/newRecordFrag" />
@@ -19,13 +19,13 @@
         android:id="@+id/taskGalleryFrag"
         android:name="com.cebsit.monkeymaster.main.homepage.taskgallery.TaskGalleryFrag"
         android:label="@string/label_task_gallery"
-        tools:layout="@layout/frag_task_gallery" />
+        tools:layout="@layout/frag_main_homepage_task_gallery" />
 
     <fragment
         android:id="@+id/monkeyHouseFrag"
         android:name="com.cebsit.monkeymaster.main.homepage.monkeyhouse.MonkeyHouseFrag"
         android:label="@string/label_monkey_house"
-        tools:layout="@layout/frag_monkey_house" >
+        tools:layout="@layout/frag_main_homepage_monkey_house" >
         <action
             android:id="@+id/action_monkeyHouseFrag_to_newMonkeyFrag"
             app:destination="@id/newMonkeyFrag" />

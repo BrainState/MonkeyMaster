@@ -31,7 +31,7 @@ public class RecordBookFrag extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.frag_record_book, container, false);
+        View root = inflater.inflate(R.layout.frag_main_homepage_record_book, container, false);
         Context context = root.getContext();
 
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);

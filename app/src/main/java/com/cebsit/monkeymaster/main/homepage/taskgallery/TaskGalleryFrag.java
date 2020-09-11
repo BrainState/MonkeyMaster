@@ -23,7 +23,7 @@ public class TaskGalleryFrag extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.frag_task_gallery, container, false);
+        View root = inflater.inflate(R.layout.frag_main_homepage_task_gallery, container, false);
 
         Context context = root.getContext();
 

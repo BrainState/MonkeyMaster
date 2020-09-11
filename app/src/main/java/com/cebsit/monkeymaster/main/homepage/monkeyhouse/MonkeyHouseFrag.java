@@ -30,7 +30,7 @@ public class MonkeyHouseFrag extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.frag_monkey_house, container, false);
+        View root = inflater.inflate(R.layout.frag_main_homepage_monkey_house, container, false);
         final Context context = root.getContext();
 
         getActivity().findViewById(R.id.fab_save).setVisibility(View.INVISIBLE);

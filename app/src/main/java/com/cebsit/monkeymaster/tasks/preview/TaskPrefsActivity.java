@@ -1,5 +1,6 @@
 package com.cebsit.monkeymaster.tasks.preview;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.SeekBarPreference;
 
 import com.cebsit.monkeymaster.R;
+import com.cebsit.monkeymaster.tasks.TaskActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.cebsit.monkeymaster.main.homepage.recordbook.RecordsPrefsSaveHelper;
 
@@ -60,6 +62,8 @@ public class TaskPrefsActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 RecordsPrefsSaveHelper.saveRecordPrefs(view.getContext(), spFileName, taskId);
+                Intent intent = new Intent(view.getContext(), TaskActivity.class);
+                startActivity(intent);
             }
         });
     }

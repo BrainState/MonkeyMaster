@@ -30,5 +30,8 @@
 
     <string name="bt_text_monkey_details_off">Show Details</string>
     <string name="bt_text_monkey_details_on">Hide Details</string>
+    <string name="title_activity_tasks">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>
