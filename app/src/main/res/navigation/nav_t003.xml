@@ -11,7 +11,10 @@
         android:label="CueFrag" >
         <action
             android:id="@+id/action_t003_cueFrag_to_stimuliFrag"
-            app:destination="@id/stimuliFrag_t003" />
+            app:destination="@id/stimuliFrag_t003"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/stimuliFrag_t003"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/stimuliFrag_t003"
@@ -19,7 +22,10 @@
         android:label="StimuliFrag_t003" >
         <action
             android:id="@+id/action_t003_stimuliFrag_to_optionsFrag"
-            app:destination="@id/optionsFrag_t003" />
+            app:destination="@id/optionsFrag_t003"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/optionsFrag_t003"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/optionsFrag_t003"
@@ -27,10 +33,16 @@
         android:label="OptionsFrag_t003" >
         <action
             android:id="@+id/action_t003_optionsFrag_to_rewardFrag"
-            app:destination="@id/rewardFrag_t003" />
+            app:destination="@id/rewardFrag_t003"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/rewardFrag_t003"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_t003_optionsFrag_to_errorFrag"
-            app:destination="@id/errorFrag_t003" />
+            app:destination="@id/errorFrag_t003"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/errorFrag_t003"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/rewardFrag_t003"
@@ -38,7 +50,10 @@
         android:label="RewardFrag" >
         <action
             android:id="@+id/action_t003_rewardFrag_to_intervalFrag"
-            app:destination="@id/intervalFrag_t003" />
+            app:destination="@id/intervalFrag_t003"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/intervalFrag_t003"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/errorFrag_t003"
@@ -46,7 +61,10 @@
         android:label="ErrorFrag" >
         <action
             android:id="@+id/action_t003_errorFrag_to_intervalFrag"
-            app:destination="@id/intervalFrag_t003" />
+            app:destination="@id/intervalFrag_t003"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/intervalFrag_t003"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/intervalFrag_t003"
@@ -54,6 +72,9 @@
         android:label="EmptyFrag" >
         <action
             android:id="@+id/action_t003_intervalFrag_to_cueFrag"
-            app:destination="@id/cueFrag_t003" />
+            app:destination="@id/cueFrag_t003"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/cueFrag_t003"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

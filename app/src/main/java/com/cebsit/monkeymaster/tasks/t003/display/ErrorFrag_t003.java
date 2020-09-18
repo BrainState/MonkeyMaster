@@ -18,7 +18,7 @@ public class ErrorFrag_t003 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_main_tasks_shared_error, container, false);
-        view.findViewById(R.id.container_error).setBackgroundColor(getResources().getColor(R.color.red));
+        view.findViewById(R.id.container_error).setBackgroundColor(getResources().getColor(ViewModel_t003.errorColor));
         return view;
     }
 
@@ -31,6 +31,6 @@ public class ErrorFrag_t003 extends Fragment {
             public void run() {
                 Navigation.findNavController(view).navigate(R.id.action_t003_errorFrag_to_intervalFrag);
             }
-        }, 3000);
+        }, ViewModel_t003.timeOutDuraion);
     }
 }

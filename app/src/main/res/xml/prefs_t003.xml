@@ -10,7 +10,7 @@
         app:useSimpleSummaryProvider="true"/>
 
     <ListPreference
-        android:defaultValue="White"
+        android:defaultValue="white"
         android:entries="@array/lp_entries_colorNames"
         android:entryValues="@array/lp_entryValues_colorNames"
         android:key="t003_stimuliColor"
@@ -18,7 +18,7 @@
         app:useSimpleSummaryProvider="true"/>
 
     <ListPreference
-        android:defaultValue="White"
+        android:defaultValue="red"
         android:entries="@array/lp_entries_colorNames"
         android:entryValues="@array/lp_entryValues_colorNames"
         android:key="t003_distractorsColor"

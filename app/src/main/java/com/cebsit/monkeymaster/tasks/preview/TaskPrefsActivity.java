@@ -1,7 +1,6 @@
 package com.cebsit.monkeymaster.tasks.preview;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,29 +10,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
-import androidx.preference.SeekBarPreference;
 
 import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.tasks.TaskActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.cebsit.monkeymaster.main.homepage.recordbook.RecordsPrefsSaveHelper;
 
-import java.util.Map;
-
 public class TaskPrefsActivity extends AppCompatActivity implements
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     private static final String TITLE_TAG = "settingsActivityTitle";
     private static String taskId;
-    private static String spFileName;
+    private static String fileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
         taskId = getIntent().getStringExtra("taskId");
-        spFileName = getIntent().getStringExtra("spFileName");
+        fileName = getIntent().getStringExtra("fileName");
 
         if (savedInstanceState == null) {
             getSupportFragmentManager()
@@ -61,8 +56,9 @@ public class TaskPrefsActivity extends AppCompatActivity implements
         fab_save_prefs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RecordsPrefsSaveHelper.saveRecordPrefs(view.getContext(), spFileName, taskId);
+                RecordsPrefsSaveHelper.saveRecordPrefs(view.getContext(), fileName, taskId);
                 Intent intent = new Intent(view.getContext(), TaskActivity.class);
+                intent.putExtra("fileName", fileName);
                 startActivity(intent);
             }
         });

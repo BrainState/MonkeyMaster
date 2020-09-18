@@ -50,20 +50,20 @@ public class OptionsFrag_t003 extends Fragment {
             @Override
             public void run() {
                 Point centre = UtilsSystem.getScreenCentre(getActivity());
-                Button[] choices = new Button[8];
+                Button[] choices = new Button[ViewModel_t003.distractorsNum + 1];
                 ConstraintLayout container_square = view.findViewById(R.id.container_empty);
                 for (int i=0;i<choices.length;i++) {
                     choices[i] = new Button(getContext());
-                    choices[i].setWidth(200);
-                    choices[i].setHeight(200);
-                    choices[i].setX((float) (centre.x + centre.x*7/10*Math.cos(2*3.14*i/choices.length) - 200/2.0));
-                    choices[i].setY((float) (centre.y + centre.x*7/10*Math.sin(2*3.14*i/choices.length) - 200/2.0));
+                    choices[i].setWidth(ViewModel_t003.cueSize);
+                    choices[i].setHeight(ViewModel_t003.cueSize);
+                    choices[i].setX((float) (centre.x + centre.x*7/10*Math.cos(2*3.14*i/choices.length) - ViewModel_t003.cueSize/2.0));
+                    choices[i].setY((float) (centre.y + centre.x*7/10*Math.sin(2*3.14*i/choices.length) - ViewModel_t003.cueSize/2.0));
                     container_square.addView(choices[i]);
                     final int finalI = i;
                     choices[i].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            viewModel_t003.getTrial_t003().setClickOrientation(finalI*(360/8));
+                            viewModel_t003.getTrial_t003().setClickOrientation(finalI*(360/(ViewModel_t003.distractorsNum + 1)));
                             long currentTime = System.currentTimeMillis();
                             viewModel_t003.getTrial_t003().setClickTimeStamp(currentTime);
                             viewModel_t003.getTrial_t003().setClickTime(UtilsSystem.timeConverter(currentTime));
@@ -84,6 +84,6 @@ public class OptionsFrag_t003 extends Fragment {
 //                    }
 //                });
             }
-        }, 3000);
+        }, ViewModel_t003.intervalPreOptions);
     }
 }

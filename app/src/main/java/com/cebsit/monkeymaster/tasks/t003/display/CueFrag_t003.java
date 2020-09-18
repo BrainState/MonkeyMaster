@@ -1,5 +1,6 @@
 package com.cebsit.monkeymaster.tasks.t003.display;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,9 @@ public class CueFrag_t003 extends Fragment {
         View view = inflater.inflate(R.layout.frag_main_tasks_shared_cue, container, false);
 //        viewModel_t003 = new ViewModelProvider(this).get(ViewModel_t003.class);
         viewModel_t003 = new ViewModelProvider(this).get(ViewModel_t003.class);
+        viewModel_t003.loadSharedPrefs(getActivity().getSharedPreferences(getActivity().getIntent().getStringExtra("fileName"), Context.MODE_PRIVATE));
+        viewModel_t003.loadDatabase(getActivity().getIntent().getStringExtra("fileName"));
+        viewModel_t003.loadPrefs();
         return view;
     }
 
@@ -30,8 +34,9 @@ public class CueFrag_t003 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button bt_cue = view.findViewById(R.id.bt_cue);
-        bt_cue.setWidth(300);
-        bt_cue.setHeight(300);
+        bt_cue.setBackgroundColor(getResources().getColor(viewModel_t003.cueColor));
+        bt_cue.setWidth(viewModel_t003.cueSize);
+        bt_cue.setHeight(viewModel_t003.cueSize);
         bt_cue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

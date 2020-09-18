@@ -31,22 +31,22 @@
     </string-array>
 
     <string-array name="lp_entryValues_colorNames">
-        <item>White</item>
-        <item>Black</item>
-        <item>Grey</item>
-        <item>Blue</item>
-        <item>Yellow</item>
-        <item>Fuchsia</item>
-        <item>Red</item>
-        <item>Silver</item>
-        <item>Olive</item>
-        <item>Purple</item>
-        <item>Maroon</item>
-        <item>Aqua</item>
-        <item>Lime</item>
-        <item>Teal</item>
-        <item>Green</item>
-        <item>Navy</item>
+        <item>white</item>
+        <item>black</item>
+        <item>grey</item>
+        <item>blue</item>
+        <item>yellow</item>
+        <item>fuchsia</item>
+        <item>red</item>
+        <item>silver</item>
+        <item>olive</item>
+        <item>purple</item>
+        <item>maroon</item>
+        <item>aqua</item>
+        <item>lime</item>
+        <item>teal</item>
+        <item>green</item>
+        <item>navy</item>
     </string-array>
 
 </resources>

@@ -18,7 +18,7 @@ public class RewardFrag_t003 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_main_tasks_shared_reward, container, false);
-        view.findViewById(R.id.container_reward).setBackgroundColor(getResources().getColor(R.color.green));
+        view.findViewById(R.id.container_reward).setBackgroundColor(getResources().getColor(ViewModel_t003.rewardColor));
         return view;
     }
 
@@ -31,6 +31,6 @@ public class RewardFrag_t003 extends Fragment {
             public void run() {
                 Navigation.findNavController(view).navigate(R.id.action_t003_rewardFrag_to_intervalFrag);
             }
-        }, 3000);
+        }, ViewModel_t003.rewardDuraion + ViewModel_t003.intervalPreReward + ViewModel_t003.intervalPostReward);
     }
 }

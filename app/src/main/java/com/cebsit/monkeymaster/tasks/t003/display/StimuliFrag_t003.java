@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.backend.UtilsSystem;
@@ -31,8 +32,6 @@ public class StimuliFrag_t003 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Random r = new Random();
-        stimuliIndex = r.nextInt(8);
         return inflater.inflate(R.layout.frag_main_tasks_shared_empty, container, false);
 //        Point centre = UtilsSystem.getScreenCentre(getActivity());
 //        Button[] choices = new Button[8];
@@ -57,35 +56,41 @@ public class StimuliFrag_t003 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         viewModel_t003 = new ViewModelProvider(this).get(ViewModel_t003.class);
-        viewModel_t003.getTrial_t003().setStimuliOrientation(stimuliIndex * (360/8));
+        Random r = new Random();
+        stimuliIndex = r.nextInt(ViewModel_t003.distractorsNum + 1);
+        viewModel_t003.getTrial_t003().setStimuliOrientation(stimuliIndex * (360/(ViewModel_t003.distractorsNum + 1)));
+
+
 
         Handler step1 = new Handler();
         step1.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Point centre = UtilsSystem.getScreenCentre(getActivity());
-                Button[] choices = new Button[8];
+                Button[] choices = new Button[ViewModel_t003.distractorsNum + 1];
                 ConstraintLayout container_square = view.findViewById(R.id.container_empty);
                 for (int i=0;i<choices.length;i++) {
                     choices[i] = new Button(getContext());
                     GradientDrawable drawable = new GradientDrawable();
                     drawable.setShape(GradientDrawable.OVAL);
-                    drawable.setColor(ContextCompat.getColor(getContext(), R.color.design_default_color_error));
+                    drawable.setColor(ContextCompat.getColor(getContext(), ViewModel_t003.distractorsColor));
 //                    drawable.setStroke(5, ContextCompat.getColor(getContext(), R.color.black_overlay));
                     choices[i].setBackground(drawable);
-                    choices[i].setHeight(200);
-                    choices[i].setWidth(200);
-                    choices[i].setX((float) (centre.x + centre.x*7/10*Math.cos(2*3.14*i/choices.length) - 200/2.0));
-                    choices[i].setY((float) (centre.y + centre.x*7/10*Math.sin(2*3.14*i/choices.length) - 200/2.0));
+//                    choices[i].setBackgroundColor(viewModel_t003.distractorsColor);
+                    choices[i].setHeight(ViewModel_t003.cueSize);
+                    choices[i].setWidth(ViewModel_t003.cueSize);
+                    choices[i].setX((float) (centre.x + centre.x*7/10*Math.cos(2*3.14*i/choices.length) - ViewModel_t003.cueSize /2));
+                    choices[i].setY((float) (centre.y + centre.x*7/10*Math.sin(2*3.14*i/choices.length) - ViewModel_t003.cueSize /2));
                     container_square.addView(choices[i]);
                 }
 
                 GradientDrawable drawable = new GradientDrawable();
                 drawable.setShape(GradientDrawable.OVAL);
-                drawable.setColor(getResources().getColor(R.color.colorAccent));
+                drawable.setColor(getResources().getColor(viewModel_t003.stimuliColor));
                 choices[stimuliIndex].setBackground(drawable);
+//                choices[stimuliIndex].setBackgroundColor(viewModel_t003.stimuliColor);
             }
-        }, 3000);
+        }, ViewModel_t003.intervalPreStimuli);
 
         Handler step2 = new Handler();
         step2.postDelayed(new Runnable() {
@@ -93,8 +98,9 @@ public class StimuliFrag_t003 extends Fragment {
             public void run() {
                 Bundle bundle = new Bundle();
                 bundle.putInt("stimuliIndex", stimuliIndex);
+//                NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_t003_stimuliFrag_to_optionsFrag, bundle);
                 Navigation.findNavController(view).navigate(R.id.action_t003_stimuliFrag_to_optionsFrag, bundle);
             }
-        }, 6000);
+        }, ViewModel_t003.intervalPreStimuli + ViewModel_t003.stimuliDuration);
     }
 }

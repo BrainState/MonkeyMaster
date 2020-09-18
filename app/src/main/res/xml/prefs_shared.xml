@@ -8,19 +8,22 @@
             android:max="10000"
             app:defaultValue="1500"
             app:key="shared_rewardDuration"
-            app:title="Reward duration (ms)" />
+            app:title="Reward duration (ms)"
+            app:showSeekBarValue="true"/>
 
         <SeekBarPreference
             android:max="10000"
             app:defaultValue="1500"
             app:key="shared_intervalPreReward"
-            app:title="Interval Pre-Reward (ms)" />
+            app:title="Interval Pre-Reward (ms)"
+            app:showSeekBarValue="true"/>
 
         <SeekBarPreference
             android:max="10000"
             app:defaultValue="1500"
             app:key="shared_intervalPostReward"
-            app:title="Interval Post-Reward (ms)" />
+            app:title="Interval Post-Reward (ms)"
+            app:showSeekBarValue="true"/>
 
         <SwitchPreferenceCompat
             android:summary="Device will beep on successful trials to aid secondary reinforcement"
@@ -36,19 +39,22 @@
             android:max="60"
             app:defaultValue="0"
             app:key="shared_timeoutDuration_min"
-            app:title="Timeout duration for error trials (min)" />
+            app:title="Timeout duration for error trials (min)"
+            app:showSeekBarValue="true"/>
 
         <SeekBarPreference
             android:max="60"
             app:defaultValue="10"
             app:key="shared_timeoutDuration_sec"
-            app:title="Timeout duration for error trials (s)" />
+            app:title="Timeout duration for error trials (s)"
+            app:showSeekBarValue="true"/>
 
         <SeekBarPreference
             android:max="1000"
             app:defaultValue="0"
             app:key="shared_timeoutDuration_msec"
-            app:title="Timeout duration for error trials (ms)" />
+            app:title="Timeout duration for error trials (ms)"
+            app:showSeekBarValue="true"/>
 
         <SwitchPreferenceCompat
             android:defaultValue="false"
@@ -74,7 +80,7 @@
     <PreferenceCategory android:title="Cue Setting">
 
         <ListPreference
-            android:defaultValue="White"
+            android:defaultValue="white"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
             app:key="shared_cueColor"
@@ -82,7 +88,7 @@
             app:useSimpleSummaryProvider="true"/>
 
         <ListPreference
-            android:defaultValue="White"
+            android:defaultValue="yellow"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
             app:key="shared_borderColor"
@@ -114,7 +120,7 @@
 
     <PreferenceCategory android:title="Background Color Setting">
         <ListPreference
-            android:defaultValue="White"
+            android:defaultValue="black"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
             app:key="shared_taskBackgroundColor"
@@ -122,7 +128,7 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="White"
+            android:defaultValue="green"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
             app:key="shared_rewardBackgroundColor"
@@ -130,7 +136,7 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="White"
+            android:defaultValue="red"
             android:entries="@array/lp_entries_colorNames"
             android:entryValues="@array/lp_entryValues_colorNames"
             app:key="shared_timeoutBackgroundColor"

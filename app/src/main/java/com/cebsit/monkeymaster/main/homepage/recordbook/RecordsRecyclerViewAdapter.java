@@ -53,12 +53,13 @@ public class RecordsRecyclerViewAdapter extends RecyclerView.Adapter<RecordsRecy
 //                Intent intent = new Intent();
 //                intent.setAction(record.getTaskId());
 //                view.getContext().startActivity(intent);
-                String spFileName = record.getCreatingTime().replaceAll(":","");
-                spFileName = "RecordPref_" + spFileName.replaceAll("/","") + "_" + String.valueOf(record.getRecordId());
+                String fileName = record.getCreatingTime().replaceAll(":","");
+                fileName = fileName.replaceAll(" ", "_");
+                fileName = "recordPref_" + fileName.replaceAll("/","") + "_" + String.valueOf(record.getTaskId());
 
                 Intent intent = new Intent(view.getContext(), TaskPrefsActivity.class);
                 intent.putExtra("taskId", record.getTaskId());
-                intent.putExtra("spFileName", spFileName);
+                intent.putExtra("fileName", fileName);
                 view.getContext().startActivity(intent);
             }
         });

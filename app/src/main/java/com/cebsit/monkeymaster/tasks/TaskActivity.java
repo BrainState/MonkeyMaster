@@ -1,26 +1,26 @@
 package com.cebsit.monkeymaster.tasks;
 
-import android.annotation.SuppressLint;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.cebsit.monkeymaster.R;
 
 public class TaskActivity extends AppCompatActivity {
+    private String fileName;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_task);
+        fileName = getIntent().getStringExtra("fileName");
+        sp = getSharedPreferences(fileName, MODE_PRIVATE);
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE
@@ -41,8 +41,8 @@ public class TaskActivity extends AppCompatActivity {
                 .setPrimaryNavigationFragment(finalHost) // this is the equivalent to app:defaultNavHost="true"
                 .commit();
 
-        //TODO 1
-        findViewById(R.id.container_tasks).setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        int backgroundColor = getResources().getIdentifier(sp.getString("shared_taskBackgroundColor", "black"),"color" , getPackageName());
+        findViewById(R.id.container_tasks).setBackgroundColor(getResources().getColor(backgroundColor));
     }
 
     @Override
