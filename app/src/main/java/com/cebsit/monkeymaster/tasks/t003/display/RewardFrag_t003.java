@@ -17,7 +17,9 @@ public class RewardFrag_t003 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.frag_main_tasks_shared_reward, container, false);
+        View view = inflater.inflate(R.layout.frag_main_tasks_shared_reward, container, false);
+        view.findViewById(R.id.container_reward).setBackgroundColor(getResources().getColor(R.color.green));
+        return view;
     }
 
     @Override

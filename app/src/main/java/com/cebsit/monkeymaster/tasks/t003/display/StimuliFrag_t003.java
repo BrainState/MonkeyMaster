@@ -1,7 +1,6 @@
 package com.cebsit.monkeymaster.tasks.t003.display;
 
 import android.graphics.Point;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,26 +8,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.backend.UtilsSystem;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Random;
 
 public class StimuliFrag_t003 extends Fragment {
 
+    ViewModel_t003 viewModel_t003;
+
+    private int stimuliIndex;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Random r = new Random();
+        stimuliIndex = r.nextInt(8);
         return inflater.inflate(R.layout.frag_main_tasks_shared_empty, container, false);
 //        Point centre = UtilsSystem.getScreenCentre(getActivity());
 //        Button[] choices = new Button[8];
@@ -52,6 +56,9 @@ public class StimuliFrag_t003 extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        viewModel_t003 = new ViewModelProvider(this).get(ViewModel_t003.class);
+        viewModel_t003.getTrial_t003().setStimuliOrientation(stimuliIndex * (360/8));
+
         Handler step1 = new Handler();
         step1.postDelayed(new Runnable() {
             @Override
@@ -73,12 +80,10 @@ public class StimuliFrag_t003 extends Fragment {
                     container_square.addView(choices[i]);
                 }
 
-                Random r = new Random();
-                int stimuleIndex = r.nextInt(8);
                 GradientDrawable drawable = new GradientDrawable();
                 drawable.setShape(GradientDrawable.OVAL);
                 drawable.setColor(getResources().getColor(R.color.colorAccent));
-                choices[stimuleIndex].setBackground(drawable);
+                choices[stimuliIndex].setBackground(drawable);
             }
         }, 3000);
 
@@ -86,7 +91,9 @@ public class StimuliFrag_t003 extends Fragment {
         step2.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Navigation.findNavController(view).navigate(R.id.action_t003_stimuliFrag_to_optionsFrag);
+                Bundle bundle = new Bundle();
+                bundle.putInt("stimuliIndex", stimuliIndex);
+                Navigation.findNavController(view).navigate(R.id.action_t003_stimuliFrag_to_optionsFrag, bundle);
             }
         }, 6000);
     }

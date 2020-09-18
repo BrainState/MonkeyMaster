@@ -15,6 +15,11 @@ public class UtilsSystem {
         return Integer.parseInt(sdf.format(time));
     }
 
+    public static String timeConverter(long timeStamp){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss:SSS");
+        return sdf.format(new Time(timeStamp));
+    }
+
     public static Point getScreenCentre(Activity activity) {
         Point screen_size = getScreenSize(activity);
         return new Point(screen_size.x/2, screen_size.y/2);
