@@ -4,25 +4,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListPreference
-        android:defaultValue="7"
-        android:key="t003_distractorsNum"
-        android:title="Number of Distractors"
+        android:defaultValue="8"
+        android:key="t003_stimuliCount"
+        android:title="Count of stimuli"
         app:useSimpleSummaryProvider="true"/>
 
     <ListPreference
         android:defaultValue="white"
         android:entries="@array/lp_entries_colorNames"
         android:entryValues="@array/lp_entryValues_colorNames"
-        android:key="t003_stimuliColor"
-        android:title="Color of stimuli"
+        android:key="t003_trueStimulusColor"
+        android:title="Color of the true stimulus"
         app:useSimpleSummaryProvider="true"/>
 
     <ListPreference
         android:defaultValue="red"
         android:entries="@array/lp_entries_colorNames"
         android:entryValues="@array/lp_entryValues_colorNames"
-        android:key="t003_distractorsColor"
-        android:title="Color of distractors"
+        android:key="t003_falseStimuliColor"
+        android:title="Color of false stimuli"
         app:useSimpleSummaryProvider="true"/>
 
     <EditTextPreference

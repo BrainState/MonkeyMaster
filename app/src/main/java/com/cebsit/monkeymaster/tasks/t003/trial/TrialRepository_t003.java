@@ -12,7 +12,6 @@ public class TrialRepository_t003 {
     public TrialRepository_t003(Context context, String fileName) {
         TrialDatabase_t003 trialDatabase_t003 = TrialDatabase_t003.getTrialDatabase_t003(context.getApplicationContext(), fileName);
         trialDao_t003 = trialDatabase_t003.getTrialDao_t003();
-//        trials_t003 = trialDao_t003.getTrials_t003();
     }
 
     public void insertTrials_t003(Trial_t003... trial_t003) {

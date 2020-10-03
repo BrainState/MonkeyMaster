@@ -13,5 +13,10 @@
     "taskId":"t003",
     "taskName": "Spatial response",
     "intro": "The task is similar to object discrimination task. The subject is required to select a previously highlighted location among up to three distractors to receive reward. The event flow of the task is taskOnsetCue --> delay 1 -->Sample --> delay 2--> response. The aim of the task is to test the working memory capacity. "
+  },
+  {
+    "taskId":"t006",
+    "taskName": "Conceptual Set-Shifting Task",
+    "intro": "The CSST requires the animal to initially form a concept by establishing a pattern of responding to a given stimulus class (color or shape), maintain responding to that same stimulus class, and then shift to a different stimulus class when the reward contingency is changed."
   }
 ]

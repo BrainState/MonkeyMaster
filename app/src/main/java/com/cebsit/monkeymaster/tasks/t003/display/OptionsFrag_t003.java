@@ -16,18 +16,18 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.backend.UtilsSystem;
+import com.cebsit.monkeymaster.backend.SystemUtils;
 
 public class OptionsFrag_t003 extends Fragment {
     ViewModel_t003 viewModel_t003;
-    private int stimuliIndex;
+    private int trueStimulusIndex;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        stimuliIndex = getArguments().getInt("stimuliIndex");
+        trueStimulusIndex = getArguments().getInt("trueStimulusIndex");
         return inflater.inflate(R.layout.frag_main_tasks_shared_empty, container, false);
-//        Point centre = UtilsSystem.getScreenCentre(getActivity());
+//        Point centre = SystemUtils.getScreenCentre(getActivity());
 //        Button[] choices = new Button[8];
 //        ConstraintLayout container_square = root.findViewById(R.id.container_empty);
 //        for (int i=0;i<choices.length;i++) {
@@ -49,8 +49,9 @@ public class OptionsFrag_t003 extends Fragment {
         step1.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Point centre = UtilsSystem.getScreenCentre(getActivity());
-                Button[] choices = new Button[ViewModel_t003.distractorsNum + 1];
+                ViewModel_t003.timerRunning = true;
+                Point centre = SystemUtils.getScreenCentre(getActivity());
+                Button[] choices = new Button[ViewModel_t003.stimuliCount];
                 ConstraintLayout container_square = view.findViewById(R.id.container_empty);
                 for (int i=0;i<choices.length;i++) {
                     choices[i] = new Button(getContext());
@@ -63,17 +64,18 @@ public class OptionsFrag_t003 extends Fragment {
                     choices[i].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            viewModel_t003.getTrial_t003().setClickOrientation(finalI*(360/(ViewModel_t003.distractorsNum + 1)));
+                            viewModel_t003.getTrial_t003().setTappedOrientation(finalI*(360/(ViewModel_t003.stimuliCount)));
                             long currentTime = System.currentTimeMillis();
-                            viewModel_t003.getTrial_t003().setClickTimeStamp(currentTime);
-                            viewModel_t003.getTrial_t003().setClickTime(UtilsSystem.timeConverter(currentTime));
-                            if (finalI == stimuliIndex) {
+                            viewModel_t003.getTrial_t003().setTappedTimeStamp(currentTime);
+                            viewModel_t003.getTrial_t003().setTappedTime(SystemUtils.timeConverter(currentTime));
+                            if (finalI == trueStimulusIndex) {
                                 Navigation.findNavController(view).navigate(R.id.action_t003_optionsFrag_to_rewardFrag);
                                 viewModel_t003.getTrial_t003().setCorrect(true);
                             } else {
                                 Navigation.findNavController(view).navigate(R.id.action_t003_optionsFrag_to_errorFrag);
                                 viewModel_t003.getTrial_t003().setCorrect(false);
                             }
+                            ViewModel_t003.timerRunning = false;
                         }
                     });
                 }
@@ -85,5 +87,15 @@ public class OptionsFrag_t003 extends Fragment {
 //                });
             }
         }, ViewModel_t003.intervalPreOptions);
+
+        Handler step2 = new Handler();
+        step2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (ViewModel_t003.timerRunning) {
+                    Navigation.findNavController(view).navigate(R.id.action_t003_optionsFrag_to_errorFrag);
+                }
+            }
+        },ViewModel_t003.intervalPreOptions + ViewModel_t003.timeOutDuration);
     }
 }

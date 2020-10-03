@@ -16,10 +16,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.backend.UtilsSystem;
+import com.cebsit.monkeymaster.backend.SystemUtils;
 
 import java.util.Random;
 
@@ -27,13 +26,13 @@ public class StimuliFrag_t003 extends Fragment {
 
     ViewModel_t003 viewModel_t003;
 
-    private int stimuliIndex;
+    private int trueStimulusIndex;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.frag_main_tasks_shared_empty, container, false);
-//        Point centre = UtilsSystem.getScreenCentre(getActivity());
+//        Point centre = SystemUtils.getScreenCentre(getActivity());
 //        Button[] choices = new Button[8];
 //        ConstraintLayout container_square = root.findViewById(R.id.container_empty);
 //        for (int i=0;i<choices.length;i++) {
@@ -57,8 +56,8 @@ public class StimuliFrag_t003 extends Fragment {
 
         viewModel_t003 = new ViewModelProvider(this).get(ViewModel_t003.class);
         Random r = new Random();
-        stimuliIndex = r.nextInt(ViewModel_t003.distractorsNum + 1);
-        viewModel_t003.getTrial_t003().setStimuliOrientation(stimuliIndex * (360/(ViewModel_t003.distractorsNum + 1)));
+        trueStimulusIndex = r.nextInt(ViewModel_t003.stimuliCount);
+        viewModel_t003.getTrial_t003().setTrueStimulusOrientation(trueStimulusIndex * (360/ViewModel_t003.stimuliCount));
 
 
 
@@ -66,14 +65,14 @@ public class StimuliFrag_t003 extends Fragment {
         step1.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Point centre = UtilsSystem.getScreenCentre(getActivity());
-                Button[] choices = new Button[ViewModel_t003.distractorsNum + 1];
+                Point centre = SystemUtils.getScreenCentre(getActivity());
+                Button[] choices = new Button[ViewModel_t003.stimuliCount];
                 ConstraintLayout container_square = view.findViewById(R.id.container_empty);
                 for (int i=0;i<choices.length;i++) {
                     choices[i] = new Button(getContext());
                     GradientDrawable drawable = new GradientDrawable();
                     drawable.setShape(GradientDrawable.OVAL);
-                    drawable.setColor(ContextCompat.getColor(getContext(), ViewModel_t003.distractorsColor));
+                    drawable.setColor(ContextCompat.getColor(getContext(), ViewModel_t003.falseStimuliColor));
 //                    drawable.setStroke(5, ContextCompat.getColor(getContext(), R.color.black_overlay));
                     choices[i].setBackground(drawable);
 //                    choices[i].setBackgroundColor(viewModel_t003.distractorsColor);
@@ -86,8 +85,8 @@ public class StimuliFrag_t003 extends Fragment {
 
                 GradientDrawable drawable = new GradientDrawable();
                 drawable.setShape(GradientDrawable.OVAL);
-                drawable.setColor(getResources().getColor(viewModel_t003.stimuliColor));
-                choices[stimuliIndex].setBackground(drawable);
+                drawable.setColor(getResources().getColor(viewModel_t003.trueStimulusColor));
+                choices[trueStimulusIndex].setBackground(drawable);
 //                choices[stimuliIndex].setBackgroundColor(viewModel_t003.stimuliColor);
             }
         }, ViewModel_t003.intervalPreStimuli);
@@ -97,7 +96,7 @@ public class StimuliFrag_t003 extends Fragment {
             @Override
             public void run() {
                 Bundle bundle = new Bundle();
-                bundle.putInt("stimuliIndex", stimuliIndex);
+                bundle.putInt("trueStimulusIndex", trueStimulusIndex);
 //                NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_t003_stimuliFrag_to_optionsFrag, bundle);
                 Navigation.findNavController(view).navigate(R.id.action_t003_stimuliFrag_to_optionsFrag, bundle);
             }

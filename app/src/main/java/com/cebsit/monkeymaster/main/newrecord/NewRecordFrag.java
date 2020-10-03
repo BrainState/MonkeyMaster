@@ -1,17 +1,9 @@
 package com.cebsit.monkeymaster.main.newrecord;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.preference.ListPreference;
@@ -19,25 +11,16 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.backend.UtilsSystem;
-import com.cebsit.monkeymaster.database.Monkey;
 import com.cebsit.monkeymaster.database.Record;
 import com.cebsit.monkeymaster.main.MainViewModel;
-import com.cebsit.monkeymaster.main.homepage.taskgallery.Task;
-import com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.getTasksCount;
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.monkeyNameMap;
-import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskIdMap;
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskList;
-import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.taskNameMap;
 
 
 public class NewRecordFrag extends PreferenceFragmentCompat {

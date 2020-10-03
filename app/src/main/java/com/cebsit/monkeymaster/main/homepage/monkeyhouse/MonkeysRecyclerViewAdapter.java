@@ -5,8 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -14,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.backend.UtilsSystem;
+import com.cebsit.monkeymaster.backend.SystemUtils;
 import com.cebsit.monkeymaster.database.Monkey;
 import com.cebsit.monkeymaster.main.MainViewModel;
 
@@ -77,11 +75,11 @@ public class MonkeysRecyclerViewAdapter extends RecyclerView.Adapter<MonkeysRecy
         int month = monkey.getBirthmonth().getMonth();
 
         Date date = new Date();
-        int age = UtilsSystem.timeIntConverter("yyyy") - year;
+        int age = SystemUtils.timeIntConverter("yyyy") - year;
         String dateUnit = "-year-old";
 
         if (age == 0) {
-            age = UtilsSystem.timeIntConverter("MM") - month;
+            age = SystemUtils.timeIntConverter("MM") - month;
             dateUnit = "-month-old";
         }
 

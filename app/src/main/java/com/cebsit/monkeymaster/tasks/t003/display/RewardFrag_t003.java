@@ -31,6 +31,6 @@ public class RewardFrag_t003 extends Fragment {
             public void run() {
                 Navigation.findNavController(view).navigate(R.id.action_t003_rewardFrag_to_intervalFrag);
             }
-        }, ViewModel_t003.rewardDuraion + ViewModel_t003.intervalPreReward + ViewModel_t003.intervalPostReward);
+        }, ViewModel_t003.rewardDuration + ViewModel_t003.intervalPreReward + ViewModel_t003.intervalPostReward);
     }
 }

@@ -27,7 +27,7 @@
 
         <SwitchPreferenceCompat
             android:summary="Device will beep on successful trials to aid secondary reinforcement"
-            app:defaultValue="ture"
+            app:defaultValue="true"
             app:key="shared_sound"
             app:title="Enable sounds" />
 

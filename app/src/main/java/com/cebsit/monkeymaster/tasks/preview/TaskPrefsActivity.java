@@ -59,6 +59,7 @@ public class TaskPrefsActivity extends AppCompatActivity implements
                 RecordsPrefsSaveHelper.saveRecordPrefs(view.getContext(), fileName, taskId);
                 Intent intent = new Intent(view.getContext(), TaskActivity.class);
                 intent.putExtra("fileName", fileName);
+                intent.putExtra("taskId", taskId);
                 startActivity(intent);
             }
         });

@@ -13,9 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.backend.UtilsSystem;
-
-import java.util.Random;
+import com.cebsit.monkeymaster.backend.SystemUtils;
 
 public class IntervalFrag_t003 extends Fragment {
     ViewModel_t003 viewModel_t003;
@@ -23,7 +21,7 @@ public class IntervalFrag_t003 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        intervalTrials = UtilsSystem.getPossionVariable(10000.00);
+        intervalTrials = SystemUtils.getPossionVariable(10000.00);
         return inflater.inflate(R.layout.frag_main_tasks_shared_empty, container, false);
     }
 

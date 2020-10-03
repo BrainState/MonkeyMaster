@@ -1,6 +1,8 @@
 package com.cebsit.monkeymaster.backend;
 
 import android.app.Activity;
+import android.app.Application;
+import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.view.Display;
 
@@ -8,7 +10,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UtilsSystem {
+public class SystemUtils {
     public static int timeIntConverter(String pattern){
         Time time = new Time(System.currentTimeMillis());
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
@@ -50,4 +52,7 @@ public class UtilsSystem {
         return sum * c;
     }
 
+    public static int getColor(Application application, SharedPreferences sp, String prefsKey, String defaultValue) {
+        return application.getResources().getIdentifier(sp.getString(prefsKey, defaultValue), "color", application.getPackageName());
+    }
 }

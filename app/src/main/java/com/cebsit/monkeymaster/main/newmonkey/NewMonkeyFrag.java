@@ -10,16 +10,11 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.backend.TimeFormatConverter;
-import com.cebsit.monkeymaster.backend.UtilsSystem;
+import com.cebsit.monkeymaster.backend.SystemUtils;
 import com.cebsit.monkeymaster.database.Monkey;
 import com.cebsit.monkeymaster.main.MainViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import static com.cebsit.monkeymaster.main.homepage.taskgallery.TasksContent.monkeyNameMap;
 
@@ -53,7 +48,7 @@ public class NewMonkeyFrag extends PreferenceFragmentCompat {
                 birthmonth.setMonth(Integer.parseInt(sp.getString("monkey_birthmonth_month", "0")));
                 monkey.setBirthmonth(birthmonth);
 
-                int presentYear = UtilsSystem.timeIntConverter("yyyy");
+                int presentYear = SystemUtils.timeIntConverter("yyyy");
                 if (monkey.getMonkeyName().equals("")) {
                     Snackbar.make(view, getResources().getString(R.string.snackbar_msg_new_monkey_name_empty), Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 } else if (monkeyNameMap.keySet().contains(monkey.getMonkeyName())) {

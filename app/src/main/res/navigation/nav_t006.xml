@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_t006"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/cueFrag_t006">
+
+    <fragment
+        android:id="@+id/cueFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.display.CueFrag_t006"
+        android:label="CueFrag_t006" >
+        <action
+            android:id="@+id/action_t006_cueFrag_to_stimuliFrag"
+            app:destination="@id/stimuliFrag_t006" />
+    </fragment>
+    <fragment
+        android:id="@+id/stimuliFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.display.StimuliFrag_t006"
+        android:label="StimuliFrag_t006" >
+        <action
+            android:id="@+id/action_t006_stimuliFrag_to_rewardFrag"
+            app:destination="@id/rewardFrag_t006" />
+        <action
+            android:id="@+id/action_t006_stimuliFrag_to_errorFrag"
+            app:destination="@id/errorFrag_t006" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.display.RewardFrag_t006"
+        android:label="RewardFrag_t006" >
+        <action
+            android:id="@+id/action_t006_rewardFrag_to_intervalFrag"
+            app:destination="@id/intervalFrag_t006" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.display.ErrorFrag_t006"
+        android:label="ErrorFrag_t006" >
+        <action
+            android:id="@+id/action_t006_errorFrag_to_intervalFrag"
+            app:destination="@id/intervalFrag_t006" />
+    </fragment>
+    <fragment
+        android:id="@+id/intervalFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.display.IntervalFrag_t006"
+        android:label="IntervalFrag_t006" >
+        <action
+            android:id="@+id/action_t006_intervalFrag_to_cueFrag"
+            app:destination="@id/cueFrag_t006" />
+    </fragment>
+</navigation>

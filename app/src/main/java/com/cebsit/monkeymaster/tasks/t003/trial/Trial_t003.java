@@ -9,14 +9,14 @@ public class Trial_t003 {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "trial_id")
     private int trialId;
-    @ColumnInfo(name = "stimuli_orientation")
-    private int stimuliOrientation;
-    @ColumnInfo(name = "click_orientation")
-    private int clickOrientation;
-    @ColumnInfo(name = "click_time_stamp")
-    private long clickTimeStamp;
-    @ColumnInfo(name = "click_time")
-    private String clickTime;
+    @ColumnInfo(name = "true_stimulus_orientation")
+    private int trueStimulusOrientation;
+    @ColumnInfo(name = "tapped_orientation")
+    private int tappedOrientation;
+    @ColumnInfo(name = "tapped_time_stamp")
+    private long tappedTimeStamp;
+    @ColumnInfo(name = "tapped_time")
+    private String tappedTime;
     private boolean correct;
 
     public Trial_t003() {
@@ -31,36 +31,36 @@ public class Trial_t003 {
         this.trialId = trialId;
     }
 
-    public int getStimuliOrientation() {
-        return stimuliOrientation;
+    public int getTrueStimulusOrientation() {
+        return trueStimulusOrientation;
     }
 
-    public void setStimuliOrientation(int stimuliOrientation) {
-        this.stimuliOrientation = stimuliOrientation;
+    public void setTrueStimulusOrientation(int trueStimulusOrientation) {
+        this.trueStimulusOrientation = trueStimulusOrientation;
     }
 
-    public int getClickOrientation() {
-        return clickOrientation;
+    public int getTappedOrientation() {
+        return tappedOrientation;
     }
 
-    public void setClickOrientation(int clickOrientation) {
-        this.clickOrientation = clickOrientation;
+    public void setTappedOrientation(int tappedOrientation) {
+        this.tappedOrientation = tappedOrientation;
     }
 
-    public long getClickTimeStamp() {
-        return clickTimeStamp;
+    public long getTappedTimeStamp() {
+        return tappedTimeStamp;
     }
 
-    public void setClickTimeStamp(long clickTimeStamp) {
-        this.clickTimeStamp = clickTimeStamp;
+    public void setTappedTimeStamp(long tappedTimeStamp) {
+        this.tappedTimeStamp = tappedTimeStamp;
     }
 
-    public String getClickTime() {
-        return clickTime;
+    public String getTappedTime() {
+        return tappedTime;
     }
 
-    public void setClickTime(String clickTime) {
-        this.clickTime = clickTime;
+    public void setTappedTime(String tappedTime) {
+        this.tappedTime = tappedTime;
     }
 
     public boolean isCorrect() {

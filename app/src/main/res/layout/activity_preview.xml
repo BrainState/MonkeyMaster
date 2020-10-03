@@ -22,5 +22,5 @@
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_bt_save_24" />
+        app:srcCompat="@drawable/ic_bt_play_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

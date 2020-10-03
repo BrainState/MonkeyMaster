@@ -3,6 +3,7 @@ package com.cebsit.monkeymaster.tasks.t003.display;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,10 +23,7 @@ public class CueFrag_t003 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_main_tasks_shared_cue, container, false);
-//        viewModel_t003 = new ViewModelProvider(this).get(ViewModel_t003.class);
         viewModel_t003 = new ViewModelProvider(this).get(ViewModel_t003.class);
-        viewModel_t003.loadSharedPrefs(getActivity().getSharedPreferences(getActivity().getIntent().getStringExtra("fileName"), Context.MODE_PRIVATE));
-        viewModel_t003.loadDatabase(getActivity().getIntent().getStringExtra("fileName"));
         viewModel_t003.loadPrefs();
         return view;
     }

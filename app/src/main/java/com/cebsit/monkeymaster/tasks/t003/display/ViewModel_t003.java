@@ -1,63 +1,64 @@
 package com.cebsit.monkeymaster.tasks.t003.display;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.provider.ContactsContract;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
+import com.cebsit.monkeymaster.backend.SystemUtils;
+import com.cebsit.monkeymaster.tasks.TaskActivity;
 import com.cebsit.monkeymaster.tasks.t003.trial.TrialRepository_t003;
 import com.cebsit.monkeymaster.tasks.t003.trial.Trial_t003;
 
 public class ViewModel_t003 extends AndroidViewModel {
-    private static TrialRepository_t003 trialRepository_t003;
-    private String fileName;
-    private SharedPreferences sp;
-    private static Trial_t003 trial_t003;
-
+    static boolean timerRunning;
     static int rewardColor, errorColor;
-    static int rewardDuraion, intervalPreReward, intervalPostReward, timeOutDuraion;
+    static int rewardDuration, intervalPreReward, intervalPostReward, timeOutDuration;
     static int cueColor, borderColor;
     static int cueSize, cueBorderSize;
-    static int distractorsNum;
-    static int stimuliColor, distractorsColor;
+    static int stimuliCount;
+    static int trueStimulusColor, falseStimuliColor;
     static int intervalPreStimuli, stimuliDuration, intervalPreOptions, optionsDuration;
+    private static TrialRepository_t003 trialRepository_t003;
+    private static Trial_t003 trial_t003;
+    private SharedPreferences sp;
 
     public ViewModel_t003(@NonNull Application application) {
         super(application);
-//        trailsFileName = "fileName";
-//        trialRepository_t003 = new TrialRepository_t003(application, trailsFileName);
-    }
 
-    public void loadSharedPrefs(SharedPreferences sp) {this.sp = sp;}
-
-    public void loadDatabase(String fileName) {
+        timerRunning = false;
+        String fileName = TaskActivity.getFileName();
+        sp = getApplication().getSharedPreferences(fileName, Context.MODE_PRIVATE);
         trialRepository_t003 = new TrialRepository_t003(getApplication(), fileName);
     }
 
     @SuppressWarnings({"UnnecessaryBoxing", "ConstantConditions"})
     public void loadPrefs() {
-        rewardColor = getApplication().getResources().getIdentifier(sp.getString("shared_rewardColor", "green"), "color", getApplication().getPackageName());
-        errorColor = getApplication().getResources().getIdentifier(sp.getString("shared_errorColor", "red"), "color", getApplication().getPackageName());
+        rewardColor = SystemUtils.getColor(getApplication(), sp, "shared_rewardColor", "green");
+        errorColor = SystemUtils.getColor(getApplication(), sp, "shared_errorColor", "red");
 
-        rewardDuraion = Integer.valueOf(sp.getString("shared_rewardDuraion", "3000"));
+        rewardDuration = Integer.valueOf(sp.getString("shared_rewardDuration", "3000"));
         intervalPreReward = Integer.valueOf(sp.getString("shared_intervalPreReward", "3000"));
         intervalPostReward = Integer.valueOf(sp.getString("shared_intervalPostReward", "3000"));
-        timeOutDuraion = 60 * 1000 * Integer.valueOf(sp.getString("shared_timeoutDuration_min","0")) + 1000 * Integer.valueOf(sp.getString("shared_timeoutDuration_sec","0")) + Integer.valueOf(sp.getString("shared_timeoutDuration_msec","0"));
+        timeOutDuration =
+                Integer.valueOf(sp.getString("shared_timeoutDuration_min", "0")) * 1000 * 60 +
+                Integer.valueOf(sp.getString("shared_timeoutDuration_sec", "0")) * 1000 +
+                Integer.valueOf(sp.getString("shared_timeoutDuration_msec", "0"));
 
-        cueColor = getApplication().getResources().getIdentifier(sp.getString("shared_cueColor", "white"), "color", getApplication().getPackageName());
-        borderColor = getApplication().getResources().getIdentifier(sp.getString("shared_borderColor", "yellow"), "color", getApplication().getPackageName());
-        cueSize = 10 * Integer.valueOf(sp.getString("shared_cueSize","30"));
-        cueBorderSize = 10 * Integer.valueOf(sp.getString("shared_cueBorderSize","0"));
+        cueColor = SystemUtils.getColor(getApplication(), sp, "shared_cueColor", "white");
+        borderColor = SystemUtils.getColor(getApplication(), sp, "shared_borderColor", "yellow");
+        cueSize = 10 * Integer.valueOf(sp.getString("shared_cueSize", "30"));
+        cueBorderSize = 10 * Integer.valueOf(sp.getString("shared_cueBorderSize", "0"));
 
-        distractorsNum = Integer.valueOf(sp.getString("t003_distractorsNum", "7"));
-        stimuliColor = getApplication().getResources().getIdentifier(sp.getString("t003_stimuliColor", "white"),"color", getApplication().getPackageName());
-        distractorsColor = getApplication().getResources().getIdentifier(sp.getString("t003_distractorsColor", "red"),"color", getApplication().getPackageName());
+        stimuliCount = Integer.valueOf(sp.getString("t003_stimuliCount", "8"));
+        trueStimulusColor = SystemUtils.getColor(getApplication(), sp, "t003_trueStimulusColor", "white");
+        falseStimuliColor = SystemUtils.getColor(getApplication(), sp, "t003_falseStimuliColor", "red");
         intervalPreStimuli = Integer.valueOf(sp.getString("t003_intervalPreStimuli", "3000"));
-        stimuliDuration = Integer.valueOf(sp.getString("t003_stimuliDuration","3000"));
-        intervalPreOptions = Integer.valueOf(sp.getString("t003_intervalPreOptions","3000"));
-        optionsDuration = Integer.valueOf(sp.getString("t003_optionsDuration","3000"));
+        stimuliDuration = Integer.valueOf(sp.getString("t003_stimuliDuration", "3000"));
+        intervalPreOptions = Integer.valueOf(sp.getString("t003_intervalPreOptions", "3000"));
+        optionsDuration = Integer.valueOf(sp.getString("t003_optionsDuration", "3000"));
     }
 
     public void initTrial() {
