@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.tasks.t006.trial.Trial_t006.Stimulus;
+import com.cebsit.monkeymaster.backend.SystemUtils;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -24,16 +24,10 @@ import java.util.Random;
 public class StimuliFrag_t006 extends Fragment {
 
     ViewModel_t006 viewModel_t006;
-
     private int[][] permutations;
-    int shift = 0;
     private ConstraintLayout cell;
-    //    ConstraintLayout[] cells = new ConstraintLayout[9];
     private ImageButton[] stimuli = new ImageButton[3];
-//    ImageButton stimulus1;
-//    ImageButton stimulus2;
-//    ImageButton stimulus3;
-//    int shift = 0;
+
 
     @Nullable
     @Override
@@ -61,12 +55,12 @@ public class StimuliFrag_t006 extends Fragment {
         int[] shapePermutation = permutations[shapePermutationIndex];
         int[] columnPermutation = permutations[columnPermutationIndex];
 
-        HashMap<Integer,String> colorMap = new HashMap<>();
+        HashMap<Integer, String> colorMap = new HashMap<>();
         colorMap.put(1, "blue");
         colorMap.put(2, "green");
         colorMap.put(3, "yellow");
 
-        HashMap<Integer,String> shapeMap = new HashMap<>();
+        HashMap<Integer, String> shapeMap = new HashMap<>();
         shapeMap.put(1, "triangle");
         shapeMap.put(2, "circle");
         shapeMap.put(3, "star");
@@ -75,31 +69,20 @@ public class StimuliFrag_t006 extends Fragment {
         viewModel_t006.getTrial_t006().setStimulus2(2, columnPermutation[1], colorMap.get(colorPermutation[1]), shapeMap.get(shapePermutation[1]));
         viewModel_t006.getTrial_t006().setStimulus3(3, columnPermutation[2], colorMap.get(colorPermutation[2]), shapeMap.get(shapePermutation[2]));
 
-
-        boolean correct = false;
-        shift = 0;
-
-        viewModel_t006.getConsecutiveCorrectCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer consecutiveCorrectCount) {
-                if (consecutiveCorrectCount == 10) {
-                    shift += 1;
-                    if (shift == 4) {
-                        shift = 0;
-                    }
-                }
-            }
-        });
+        if (viewModel_t006.getCCC() == 10) {
+            viewModel_t006.changeShift();
+        }
+        viewModel_t006.getTrial_t006().setShift(viewModel_t006.getShift());
 
         for (int i = 0; i < stimuli.length; i++) {
-
+            boolean correct = false;
             stimuli[i] = new ImageButton(getContext());
             stimuli[i].setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             setStimulus(i, shapePermutation[i], colorPermutation[i]);
             setColumn(i, columnPermutation[i]);
             cell.addView(stimuli[i]);
 
-            switch (shift) {
+            switch (viewModel_t006.getShift()) {
                 case 0:
                     if (colorPermutation[i] == 1) {
                         correct = true;
@@ -119,17 +102,33 @@ public class StimuliFrag_t006 extends Fragment {
                     if (shapePermutation[i] == 2) {
                         correct = true;
                     }
+                    break;
+            }
+
+            if (correct) {
+                viewModel_t006.getTrial_t006().setTrueStimulusNum(i + 1);
             }
 
             final boolean finalCorrect = correct;
+            final int finalI = i;
             stimuli[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    long currentTime = System.currentTimeMillis();
+                    viewModel_t006.getTrial_t006().setTappedTimeStamp(currentTime);
+                    viewModel_t006.getTrial_t006().setTappedTime(SystemUtils.timeConverter(currentTime));
+                    viewModel_t006.getTrial_t006().setTappedStimulusNum(finalI +1);
                     if (finalCorrect) {
+                        viewModel_t006.getTrial_t006().setCorrect(true);
+                        viewModel_t006.addCCC();
                         Navigation.findNavController(view).navigate(R.id.action_t006_stimuliFrag_to_rewardFrag);
                     } else {
+                        viewModel_t006.getTrial_t006().setCorrect(false);
+                        viewModel_t006.resetCCC();
                         Navigation.findNavController(view).navigate(R.id.action_t006_stimuliFrag_to_errorFrag);
                     }
+                    viewModel_t006.getTrial_t006().setConsecutiveCorrectCount(viewModel_t006.getCCC());
+
                 }
             });
 

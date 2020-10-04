@@ -27,18 +27,6 @@ public class OptionsFrag_t003 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         trueStimulusIndex = getArguments().getInt("trueStimulusIndex");
         return inflater.inflate(R.layout.frag_main_tasks_shared_empty, container, false);
-//        Point centre = SystemUtils.getScreenCentre(getActivity());
-//        Button[] choices = new Button[8];
-//        ConstraintLayout container_square = root.findViewById(R.id.container_empty);
-//        for (int i=0;i<choices.length;i++) {
-//            choices[i] = new Button(getContext());
-//            choices[i].setWidth(200);
-//            choices[i].setHeight(200);
-//            choices[i].setX((float) (centre.x + centre.x*7/10*Math.cos(2*3.14*i/choices.length) - 200/2.0));
-//            choices[i].setY((float) (centre.y + centre.x*7/10*Math.sin(2*3.14*i/choices.length) - 200/2.0));
-//            container_square.addView(choices[i]);
-//        }
-//        return root;
     }
 
     @Override
@@ -79,12 +67,6 @@ public class OptionsFrag_t003 extends Fragment {
                         }
                     });
                 }
-//                choices[stimuliIndex].setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Navigation.findNavController(view).navigate(R.id.action_t003_optionsFrag_to_rewardFrag);
-//                    }
-//                });
             }
         }, ViewModel_t003.intervalPreOptions);
 
