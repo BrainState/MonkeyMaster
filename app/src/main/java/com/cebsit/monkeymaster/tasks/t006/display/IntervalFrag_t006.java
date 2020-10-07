@@ -13,15 +13,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
+import com.cebsit.monkeymaster.tasks.TimeFormat;
 import com.cebsit.monkeymaster.tasks.t006.display.ViewModel_t006;
 
 public class IntervalFrag_t006 extends Fragment {
     ViewModel_t006 viewModel_t006;
-    private int intervalTrials;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        intervalTrials = SystemUtils.getPossionVariable(10000.00);
         return inflater.inflate(R.layout.frag_main_tasks_shared_empty, container, false);
     }
 
@@ -34,6 +33,7 @@ public class IntervalFrag_t006 extends Fragment {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                viewModel_t006.getTrial_t006().getTrialTime().setOver(new TimeFormat(System.currentTimeMillis()));
                 viewModel_t006.insertTrials_t006();
                 Navigation.findNavController(view).navigate(R.id.action_t006_intervalFrag_to_cueFrag);
             }

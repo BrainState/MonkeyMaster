@@ -1,6 +1,5 @@
 package com.cebsit.monkeymaster.tasks.t006.display;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.tasks.t003.display.ViewModel_t003;
+import com.cebsit.monkeymaster.tasks.TimeFormat;
+import com.cebsit.monkeymaster.tasks.TrialTime;
 
 public class CueFrag_t006 extends Fragment {
     ViewModel_t006 viewModel_t006;
@@ -34,6 +34,10 @@ public class CueFrag_t006 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+//        TrialTime trialTime = new TrialTime();
+        viewModel_t006.initTrial();
+//        trialTime.setStart(new TimeFormat(System.currentTimeMillis()));
+        viewModel_t006.getTrial_t006().getTrialTime().setStart(new TimeFormat(System.currentTimeMillis()));
         Button bt_cue = view.findViewById(R.id.bt_cue);
 //        bt_cue.setBackgroundColor(getResources().getColor(viewModel_t003.cueColor));
 //        bt_cue.setWidth(viewModel_t003.cueSize);
@@ -44,7 +48,7 @@ public class CueFrag_t006 extends Fragment {
         bt_cue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel_t006.initTrial();
+                viewModel_t006.getTrial_t006().getTrialTime().setGo(new TimeFormat(System.currentTimeMillis()));
                 Navigation.findNavController(view).navigate(R.id.action_t006_cueFrag_to_stimuliFrag);
             }
         });

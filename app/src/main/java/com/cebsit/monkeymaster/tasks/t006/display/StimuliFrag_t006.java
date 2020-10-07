@@ -17,6 +17,7 @@ import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.backend.SystemUtils;
+import com.cebsit.monkeymaster.tasks.TimeFormat;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -115,20 +116,21 @@ public class StimuliFrag_t006 extends Fragment {
                 @Override
                 public void onClick(View view) {
                     long currentTime = System.currentTimeMillis();
-                    viewModel_t006.getTrial_t006().setTappedTimeStamp(currentTime);
-                    viewModel_t006.getTrial_t006().setTappedTime(SystemUtils.timeConverter(currentTime));
+//                    viewModel_t006.getTrial_t006().setTappedTimeStamp(currentTime);
+//                    viewModel_t006.getTrial_t006().setTappedTime(SystemUtils.timeConverter(currentTime));
+                    viewModel_t006.getTrial_t006().setTappedTime(new TimeFormat(System.currentTimeMillis()));
                     viewModel_t006.getTrial_t006().setTappedStimulusNum(finalI +1);
                     if (finalCorrect) {
                         viewModel_t006.getTrial_t006().setCorrect(true);
                         viewModel_t006.addCCC();
+                        viewModel_t006.getTrial_t006().setConsecutiveCorrectCount(viewModel_t006.getCCC());
                         Navigation.findNavController(view).navigate(R.id.action_t006_stimuliFrag_to_rewardFrag);
                     } else {
                         viewModel_t006.getTrial_t006().setCorrect(false);
                         viewModel_t006.resetCCC();
+                        viewModel_t006.getTrial_t006().setConsecutiveCorrectCount(viewModel_t006.getCCC());
                         Navigation.findNavController(view).navigate(R.id.action_t006_stimuliFrag_to_errorFrag);
                     }
-                    viewModel_t006.getTrial_t006().setConsecutiveCorrectCount(viewModel_t006.getCCC());
-
                 }
             });
 

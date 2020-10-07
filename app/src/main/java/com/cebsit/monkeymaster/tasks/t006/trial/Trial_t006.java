@@ -5,6 +5,9 @@ import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.cebsit.monkeymaster.tasks.TimeFormat;
+import com.cebsit.monkeymaster.tasks.TrialTime;
+
 import java.io.Serializable;
 
 @Entity(tableName = "trials_t006")
@@ -12,6 +15,8 @@ public class Trial_t006 implements Serializable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "trial_id")
     private int trialId;
+    @Embedded(prefix = "time_")
+    private TrialTime trialTime;
     private int shift;
     @Embedded(prefix = "stimulus1_")
     private Stimulus stimulus1;
@@ -23,10 +28,8 @@ public class Trial_t006 implements Serializable {
     private int trueStimulusNum;
     @ColumnInfo(name = "tapped_stimulus_number")
     private int tappedStimulusNum;
-    @ColumnInfo(name = "tapped_time_stamp")
-    private long tappedTimeStamp;
-    @ColumnInfo(name = "tapped_time")
-    private String tappedTime;
+    @Embedded(prefix = "tapped_time_")
+    private TimeFormat tappedTime;
     private boolean correct;
 
     @ColumnInfo(name = "consecutive_correct_count")
@@ -38,6 +41,17 @@ public class Trial_t006 implements Serializable {
 
     public void setTrialId(int trialId) {
         this.trialId = trialId;
+    }
+
+    public TrialTime getTrialTime() {
+        if (trialTime == null) {
+            trialTime = new TrialTime();
+        }
+        return trialTime;
+    }
+
+    public void setTrialTime(TrialTime trialTime) {
+        this.trialTime = trialTime;
     }
 
     public Stimulus getStimulus1() {
@@ -92,19 +106,11 @@ public class Trial_t006 implements Serializable {
         this.tappedStimulusNum = tappedStimulusNum;
     }
 
-    public long getTappedTimeStamp() {
-        return tappedTimeStamp;
-    }
-
-    public void setTappedTimeStamp(long tappedTimeStamp) {
-        this.tappedTimeStamp = tappedTimeStamp;
-    }
-
-    public String getTappedTime() {
+    public TimeFormat getTappedTime() {
         return tappedTime;
     }
 
-    public void setTappedTime(String tappedTime) {
+    public void setTappedTime(TimeFormat tappedTime) {
         this.tappedTime = tappedTime;
     }
 
