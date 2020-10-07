@@ -10,10 +10,11 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.SavedStateHandle;
 
 import com.cebsit.monkeymaster.tasks.TaskActivity;
+import com.cebsit.monkeymaster.tasks.TaskViewModel;
 import com.cebsit.monkeymaster.tasks.t006.trial.TrialRepository_t006;
 import com.cebsit.monkeymaster.tasks.t006.trial.Trial_t006;
 
-public class ViewModel_t006 extends AndroidViewModel {
+public class ViewModel_t006 extends TaskViewModel {
     static boolean timerRunning;
     private static int consecutiveCorrectCount;
     private static int shift;
