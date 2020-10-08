@@ -18,7 +18,6 @@ public class TaskActivity extends AppCompatActivity {
     private static String fileName;
     private static String taskId;
     private SharedPreferences sp;
-//    public static boolean trialRunning = false;
 
 
     public static String getFileName() {

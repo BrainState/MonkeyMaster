@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/cueFrag_t006"
-        android:name="com.cebsit.monkeymaster.tasks.t006.display.CueFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.FragCue"
         android:label="CueFrag_t006" >
         <action
             android:id="@+id/action_t006_cueFrag_to_stimuliFrag"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/stimuliFrag_t006"
-        android:name="com.cebsit.monkeymaster.tasks.t006.display.StimuliFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.FragStimuli"
         android:label="StimuliFrag_t006" >
         <action
             android:id="@+id/action_t006_stimuliFrag_to_rewardFrag"
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/rewardFrag_t006"
-        android:name="com.cebsit.monkeymaster.tasks.t006.display.RewardFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.FragReward"
         android:label="RewardFrag_t006" >
         <action
             android:id="@+id/action_t006_rewardFrag_to_intervalFrag"
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/errorFrag_t006"
-        android:name="com.cebsit.monkeymaster.tasks.t006.display.ErrorFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.FragError"
         android:label="ErrorFrag_t006" >
         <action
             android:id="@+id/action_t006_errorFrag_to_intervalFrag"
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/intervalFrag_t006"
-        android:name="com.cebsit.monkeymaster.tasks.t006.display.IntervalFrag_t006"
+        android:name="com.cebsit.monkeymaster.tasks.t006.FragInterval"
         android:label="IntervalFrag_t006" >
         <action
             android:id="@+id/action_t006_intervalFrag_to_cueFrag"

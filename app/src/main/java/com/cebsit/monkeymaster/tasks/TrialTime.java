@@ -3,8 +3,8 @@ package com.cebsit.monkeymaster.tasks;
 import androidx.room.Embedded;
 
 public class TrialTime {
-    @Embedded(prefix = "start_")
-    TimeFormat start;
+    @Embedded(prefix = "ready_")
+    TimeFormat ready;
     @Embedded(prefix = "go_")
     TimeFormat go;
     @Embedded(prefix = "over_")
@@ -12,12 +12,12 @@ public class TrialTime {
 
     public TrialTime() {}
 
-    public TimeFormat getStart() {
-        return start;
+    public TimeFormat getReady() {
+        return ready;
     }
 
-    public void setStart(TimeFormat start) {
-        this.start = start;
+    public void setReady(TimeFormat ready) {
+        this.ready = ready;
     }
 
     public TimeFormat getGo() {

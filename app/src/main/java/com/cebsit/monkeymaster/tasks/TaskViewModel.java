@@ -10,7 +10,10 @@ import androidx.lifecycle.AndroidViewModel;
 import com.cebsit.monkeymaster.backend.SystemUtils;
 
 public class TaskViewModel extends AndroidViewModel {
-    SharedPreferences sp;
+    protected String fileName = TaskActivity.getFileName();
+    protected SharedPreferences sp;
+
+    public boolean timeRunning = false;
 
     public int rewardColor, errorColor;
     public int rewardDuration, intervalPreReward, intervalPostReward, timeOutDuration;
@@ -20,7 +23,6 @@ public class TaskViewModel extends AndroidViewModel {
     @SuppressWarnings({"ConstantConditions"})
     public TaskViewModel(@NonNull Application application) {
         super(application);
-        String fileName = TaskActivity.getFileName();
         sp = application.getSharedPreferences(fileName, Context.MODE_PRIVATE);
 
         rewardColor = SystemUtils.getColor(getApplication(), sp, "shared_rewardColor", "green");

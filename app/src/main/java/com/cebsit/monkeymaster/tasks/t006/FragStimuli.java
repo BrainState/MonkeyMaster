@@ -1,4 +1,4 @@
-package com.cebsit.monkeymaster.tasks.t006.display;
+package com.cebsit.monkeymaster.tasks.t006;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,24 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
-import com.cebsit.monkeymaster.backend.SystemUtils;
 import com.cebsit.monkeymaster.tasks.TimeFormat;
+import com.cebsit.monkeymaster.tasks.t006.TrialDatabase.Trial.Performance.Stimulus;
 
 import java.util.HashMap;
 import java.util.Random;
 
-public class StimuliFrag_t006 extends Fragment {
+public class FragStimuli extends Fragment {
 
-    ViewModel_t006 viewModel_t006;
-    private int[][] permutations;
+    TrialViewModel trialViewModel;
     private ConstraintLayout cell;
     private ImageButton[] stimuli = new ImageButton[3];
-
 
     @Nullable
     @Override
@@ -39,8 +36,8 @@ public class StimuliFrag_t006 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel_t006 = new ViewModelProvider(this).get(ViewModel_t006.class);
-        permutations = new int[][]{
+        trialViewModel = new ViewModelProvider(this).get(TrialViewModel.class);
+        int[][] permutations = new int[][]{
                 {1, 2, 3},
                 {1, 3, 2},
                 {2, 1, 3},
@@ -66,14 +63,14 @@ public class StimuliFrag_t006 extends Fragment {
         shapeMap.put(2, "circle");
         shapeMap.put(3, "star");
 
-        viewModel_t006.getTrial_t006().setStimulus1(1, columnPermutation[0], colorMap.get(colorPermutation[0]), shapeMap.get(shapePermutation[0]));
-        viewModel_t006.getTrial_t006().setStimulus2(2, columnPermutation[1], colorMap.get(colorPermutation[1]), shapeMap.get(shapePermutation[1]));
-        viewModel_t006.getTrial_t006().setStimulus3(3, columnPermutation[2], colorMap.get(colorPermutation[2]), shapeMap.get(shapePermutation[2]));
+        trialViewModel.getTrial().getPerformance().setStimulus1(new Stimulus(1, columnPermutation[0], colorMap.get(colorPermutation[0]), shapeMap.get(shapePermutation[0])));
+        trialViewModel.getTrial().getPerformance().setStimulus2(new Stimulus(2, columnPermutation[1], colorMap.get(colorPermutation[1]), shapeMap.get(shapePermutation[1])));
+        trialViewModel.getTrial().getPerformance().setStimulus3(new Stimulus(3, columnPermutation[2], colorMap.get(colorPermutation[2]), shapeMap.get(shapePermutation[2])));
 
-        if (viewModel_t006.getCCC() == 10) {
-            viewModel_t006.changeShift();
+        if (trialViewModel.getCCC() == 10) {
+            trialViewModel.changeShift();
         }
-        viewModel_t006.getTrial_t006().setShift(viewModel_t006.getShift());
+        trialViewModel.getTrial().getPerformance().setShift(trialViewModel.getShift());
 
         for (int i = 0; i < stimuli.length; i++) {
             boolean correct = false;
@@ -83,7 +80,7 @@ public class StimuliFrag_t006 extends Fragment {
             setColumn(i, columnPermutation[i]);
             cell.addView(stimuli[i]);
 
-            switch (viewModel_t006.getShift()) {
+            switch (trialViewModel.getShift()) {
                 case 0:
                     if (colorPermutation[i] == 1) {
                         correct = true;
@@ -107,7 +104,7 @@ public class StimuliFrag_t006 extends Fragment {
             }
 
             if (correct) {
-                viewModel_t006.getTrial_t006().setTrueStimulusNum(i + 1);
+                trialViewModel.getTrial().getPerformance().setTrueStimulusNum(i + 1);
             }
 
             final boolean finalCorrect = correct;
@@ -115,25 +112,21 @@ public class StimuliFrag_t006 extends Fragment {
             stimuli[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    long currentTime = System.currentTimeMillis();
-//                    viewModel_t006.getTrial_t006().setTappedTimeStamp(currentTime);
-//                    viewModel_t006.getTrial_t006().setTappedTime(SystemUtils.timeConverter(currentTime));
-                    viewModel_t006.getTrial_t006().setTappedTime(new TimeFormat(System.currentTimeMillis()));
-                    viewModel_t006.getTrial_t006().setTappedStimulusNum(finalI +1);
+                    trialViewModel.getTrial().getPerformance().setTappedTime(new TimeFormat(System.currentTimeMillis()));
+                    trialViewModel.getTrial().getPerformance().setTappedStimulusNum(finalI +1);
                     if (finalCorrect) {
-                        viewModel_t006.getTrial_t006().setCorrect(true);
-                        viewModel_t006.addCCC();
-                        viewModel_t006.getTrial_t006().setConsecutiveCorrectCount(viewModel_t006.getCCC());
+                        trialViewModel.getTrial().setCorrect(true);
+                        trialViewModel.addCCC();
+                        trialViewModel.getTrial().getPerformance().setConsecutiveCorrectCount(trialViewModel.getCCC());
                         Navigation.findNavController(view).navigate(R.id.action_t006_stimuliFrag_to_rewardFrag);
                     } else {
-                        viewModel_t006.getTrial_t006().setCorrect(false);
-                        viewModel_t006.resetCCC();
-                        viewModel_t006.getTrial_t006().setConsecutiveCorrectCount(viewModel_t006.getCCC());
+                        trialViewModel.getTrial().setCorrect(false);
+                        trialViewModel.resetCCC();
+                        trialViewModel.getTrial().getPerformance().setConsecutiveCorrectCount(trialViewModel.getCCC());
                         Navigation.findNavController(view).navigate(R.id.action_t006_stimuliFrag_to_errorFrag);
                     }
                 }
             });
-
         }
     }
 
@@ -228,5 +221,4 @@ public class StimuliFrag_t006 extends Fragment {
                 break;
         }
     }
-
 }

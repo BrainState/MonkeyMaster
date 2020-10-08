@@ -1,4 +1,4 @@
-package com.cebsit.monkeymaster.tasks.t006.display;
+package com.cebsit.monkeymaster.tasks.t006;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,34 +15,31 @@ import androidx.navigation.Navigation;
 
 import com.cebsit.monkeymaster.R;
 import com.cebsit.monkeymaster.tasks.TimeFormat;
-import com.cebsit.monkeymaster.tasks.TrialTime;
 
-public class CueFrag_t006 extends Fragment {
-    ViewModel_t006 viewModel_t006;
+public class FragCue extends Fragment {
+    TrialViewModel trialViewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_main_tasks_shared_cue, container, false);
-        viewModel_t006 = new ViewModelProvider(this).get(ViewModel_t006.class);
+        trialViewModel = new ViewModelProvider(this).get(TrialViewModel.class);
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        TrialTime trialTime = new TrialTime();
-        viewModel_t006.initTrial();
-//        trialTime.setStart(new TimeFormat(System.currentTimeMillis()));
-        viewModel_t006.getTrial_t006().getTrialTime().setStart(new TimeFormat(System.currentTimeMillis()));
+        trialViewModel.initTrial();
+        trialViewModel.getTrial().getTrialTime().setReady(new TimeFormat(System.currentTimeMillis()));
         Button bt_cue = view.findViewById(R.id.bt_cue);
-        bt_cue.setBackgroundColor(ContextCompat.getColor(view.getContext(), viewModel_t006.cueColor));
-        bt_cue.setWidth(viewModel_t006.cueSize);
-        bt_cue.setHeight(viewModel_t006.cueSize);
+        bt_cue.setBackgroundColor(ContextCompat.getColor(view.getContext(), trialViewModel.cueColor));
+        bt_cue.setWidth(trialViewModel.cueSize);
+        bt_cue.setHeight(trialViewModel.cueSize);
         bt_cue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel_t006.getTrial_t006().getTrialTime().setGo(new TimeFormat(System.currentTimeMillis()));
+                trialViewModel.getTrial().getTrialTime().setGo(new TimeFormat(System.currentTimeMillis()));
                 Navigation.findNavController(view).navigate(R.id.action_t006_cueFrag_to_stimuliFrag);
             }
         });
