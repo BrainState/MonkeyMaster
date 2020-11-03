@@ -48,7 +48,6 @@ public class TrialViewModel extends TaskViewModel {
         }
     }
 
-
     void resetCCC() {
         consecutiveCorrectCount = 0;
     }

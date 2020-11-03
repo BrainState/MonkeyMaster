@@ -13,6 +13,10 @@ public class TaskViewModel extends AndroidViewModel {
     protected String fileName = TaskActivity.getFileName();
     protected SharedPreferences sp;
 
+    public static int rewardChannel, maxRewardChannels = 4;
+    public String strobes_on, strobes_off;
+
+
     public boolean timeRunning = false;
 
     public int rewardColor, errorColor;
@@ -24,6 +28,18 @@ public class TaskViewModel extends AndroidViewModel {
     public TaskViewModel(@NonNull Application application) {
         super(application);
         sp = application.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+
+        rewardChannel = sp.getInt("system_rewardChannel", 0);
+        strobes_on = new String[max_reward_channels];
+        strobes_off = new String[max_reward_channels];
+        strobes_on[0] = sp.getString(r.getString(R.string.preftag_strobe_one_on), r.getString(R.string.default_strobe_one_on));
+        strobes_off[0] = sp.getString(r.getString(R.string.preftag_strobe_one_off), r.getString(R.string.default_strobe_one_off));
+        strobes_on[1] = sp.getString(r.getString(R.string.preftag_strobe_two_on), r.getString(R.string.default_strobe_two_on));
+        strobes_off[1] = sp.getString(r.getString(R.string.preftag_strobe_two_off), r.getString(R.string.default_strobe_two_off));
+        strobes_on[2] = sp.getString(r.getString(R.string.preftag_strobe_three_on), r.getString(R.string.default_strobe_three_on));
+        strobes_off[2] = sp.getString(r.getString(R.string.preftag_strobe_three_off), r.getString(R.string.default_strobe_three_off));
+        strobes_on[3] = sp.getString(r.getString(R.string.preftag_strobe_four_on), r.getString(R.string.default_strobe_four_on));
+        strobes_off[3] = sp.getString(r.getString(R.string.preftag_strobe_four_off), r.getString(R.string.default_strobe_four_off));
 
         rewardColor = SystemUtils.getColor(getApplication(), sp, "shared_rewardColor", "green");
         errorColor = SystemUtils.getColor(getApplication(), sp, "shared_errorColor", "red");
